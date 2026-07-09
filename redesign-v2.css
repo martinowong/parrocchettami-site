@@ -504,61 +504,6 @@ body.lightbox-open {
   outline-offset: 3px;
 }
 
-.text-editor-panel {
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  z-index: 80;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  max-width: calc(100vw - 36px);
-  padding: 8px;
-  border: 1px solid rgba(26, 107, 43, 0.16);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.88);
-  box-shadow: 0 20px 54px rgba(21, 32, 24, 0.16);
-  backdrop-filter: blur(18px);
-}
-
-.editor-button {
-  min-height: 34px;
-  padding: 0 12px;
-  border: 0;
-  border-radius: 999px;
-  background: var(--ink);
-  color: #fff;
-  cursor: pointer;
-  font: inherit;
-  font-size: 12px;
-  font-weight: 820;
-}
-
-.editor-button.secondary {
-  border: 1px solid var(--line);
-  background: #fff;
-  color: var(--green-dark);
-}
-
-.text-editor-panel span {
-  padding: 0 8px 0 2px;
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 720;
-  white-space: nowrap;
-}
-
-body.text-editing [data-editable-text] {
-  outline: 2px dashed rgba(47, 152, 66, 0.38);
-  outline-offset: 4px;
-  border-radius: 6px;
-  cursor: text;
-}
-
-body.text-editing [data-editable-text]:focus {
-  outline-color: var(--green-dark);
-  background: rgba(243, 251, 244, 0.64);
-}
 
 @media (max-width: 680px) {
   .modes-screenshot {
@@ -647,15 +592,6 @@ body.text-editing [data-editable-text]:focus {
     grid-template-columns: 1fr;
     gap: 10px;
   }
-
-  .text-editor-panel {
-    right: 12px;
-    bottom: 12px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    border-radius: 18px;
-  }
-
 }
 
 .language-stage {

@@ -247,115 +247,6 @@ if (languageStage && flagRing && flagItems.length > 0) {
   renderFlags(performance.now());
 }
 
-const editorToggle = document.querySelector("[data-editor-toggle]");
-const editorExport = document.querySelector("[data-editor-export]");
-const editorReset = document.querySelector("[data-editor-reset]");
-const editorStatus = document.querySelector("[data-editor-status]");
-const editableSelector = [
-  "h1",
-  "h2",
-  "h3",
-  "main p",
-  ".brand span",
-  ".nav-links a",
-  ".nav-cta",
-  ".button",
-  ".system-note",
-  ".proof-row strong",
-  ".proof-row span",
-  ".format-pills li",
-  ".record-controls span",
-  ".privacy-band li",
-  ".credit-card span",
-  ".credit-card a",
-  ".install-steps-card li",
-  ".faq-item summary",
-  ".faq-item p",
-  ".site-footer a",
-  ".site-footer p"
-].join(",");
-
-const editableTextNodes = Array.from(document.querySelectorAll(editableSelector)).filter((element) => {
-  return !element.closest(".text-editor-panel") && element.textContent.trim().length > 0;
-});
-
-const editorStorageKey = "parrocchettami-redesign-v2-copy";
-let editorOn = false;
-
-const stableKeyFor = (element, index) => {
-  const explicitId = element.id ? `#${element.id}` : "";
-  const textHint = element.textContent.trim().slice(0, 42).toLowerCase().replace(/\s+/g, "-");
-  return `${element.tagName.toLowerCase()}${explicitId}:${index}:${textHint}`;
-};
-
-const readStoredCopy = () => {
-  try {
-    return JSON.parse(localStorage.getItem(editorStorageKey) || "{}");
-  } catch {
-    return {};
-  }
-};
-
-const writeStoredCopy = (copy) => {
-  localStorage.setItem(editorStorageKey, JSON.stringify(copy, null, 2));
-};
-
-const storedCopy = readStoredCopy();
-
-editableTextNodes.forEach((element, index) => {
-  const key = stableKeyFor(element, index);
-  element.dataset.editableText = key;
-
-  if (storedCopy[key]) {
-    element.textContent = storedCopy[key];
-  }
-
-  element.addEventListener("input", () => {
-    const nextCopy = readStoredCopy();
-    nextCopy[key] = element.textContent.trim();
-    writeStoredCopy(nextCopy);
-    if (editorStatus) editorStatus.textContent = "Salvato";
-  });
-});
-
-const setEditorMode = (enabled) => {
-  editorOn = enabled;
-  document.body.classList.toggle("text-editing", editorOn);
-
-  editableTextNodes.forEach((element) => {
-    element.contentEditable = editorOn ? "true" : "false";
-    element.spellcheck = editorOn;
-  });
-
-  if (editorToggle) editorToggle.textContent = editorOn ? "Fine modifica" : "Modifica testi";
-  if (editorStatus) editorStatus.textContent = editorOn ? "Editor acceso" : "Editor spento";
-};
-
-if (editorToggle) {
-  editorToggle.addEventListener("click", () => setEditorMode(!editorOn));
-}
-
-if (editorExport) {
-  editorExport.addEventListener("click", () => {
-    const copy = readStoredCopy();
-    const blob = new Blob([JSON.stringify(copy, null, 2)], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "parrocchettami-copy.json";
-    link.click();
-    URL.revokeObjectURL(url);
-    if (editorStatus) editorStatus.textContent = "JSON esportato";
-  });
-}
-
-if (editorReset) {
-  editorReset.addEventListener("click", () => {
-    localStorage.removeItem(editorStorageKey);
-    window.location.reload();
-  });
-}
-
 const modesFigure = document.querySelector(".modes-screenshot");
 const modeArrowSvg = document.querySelector(".mode-arrows");
 const elasticModes = [
@@ -457,7 +348,6 @@ if (!reducedMotion && modesFigure && modeArrowSvg) {
     };
 
     mode.label.addEventListener("pointerdown", (event) => {
-      if (editorOn) return;
       dragging = true;
       activePointerId = event.pointerId;
       pointerStart = { x: event.clientX, y: event.clientY };
