@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Parrocchettami - Trascrizione audio offline veloce e privata</title>
+    <meta
+      name="description"
+      content="Parrocchettami è un'app macOS per trascrivere audio in testo offline, velocemente e senza inviare dati a servizi esterni."
+    >
+    <link rel="icon" href="assets/parrocchettami-macOS-icon.png">
+    <link rel="stylesheet" href="redesign.css">
+    <link rel="stylesheet" href="redesign-v2.css">
+  </head>
+  <body>
+    <header class="site-header" aria-label="Navigazione">
+      <a class="brand" href="#top" aria-label="Parrocchettami">
+        <img src="assets/parrocchettami-macOS-icon.png" alt="">
+        <span>Parrocchettami</span>
+      </a>
+      <nav class="nav-links" aria-label="Navigazione principale">
+        <a href="#features">Funzioni</a>
+        <a href="#languages">Lingue</a>
+        <a href="#install">Installazione</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="nav-cta" href="#install">Download</a>
+    </header>
+
+    <div class="text-editor-panel" aria-label="Editor testi">
+      <button class="editor-button" type="button" data-editor-toggle>Modifica testi</button>
+      <button class="editor-button secondary" type="button" data-editor-export>Esporta JSON</button>
+      <button class="editor-button secondary" type="button" data-editor-reset>Reset</button>
+      <span data-editor-status>Editor spento</span>
+    </div>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <h1 id="hero-title">Parrocchettami</h1>
+          <p class="hero-claim">Trascrizione audio offline veloce e privata.</p>
+          <p class="hero-subcopy">
+            Trasforma audio in testo completamente in locale, in modo privato e
+            veloce.
+          </p>
+          <div class="hero-actions" aria-label="Azioni principali">
+            <a class="button primary" href="#install">Download per macOS</a>
+            <a class="button secondary" href="https://github.com/martinowong/parrocchettami">Vedi su GitHub</a>
+          </div>
+          <p class="system-note">Apple Silicon, macOS 14+</p>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <img class="hero-bird" src="assets/parrocchettoflying Background Removed.png" alt="">
+          <img class="hero-icon" src="assets/parrocchettami-macOS-icon.png" alt="">
+        </div>
+      </section>
+
+      <section class="transcription-demo" aria-labelledby="demo-title">
+        <div class="demo-audio">
+          <p class="demo-label" id="demo-title">Audio</p>
+          <svg class="speech-wave" viewBox="0 0 760 180" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="voice-red" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0%" stop-color="#ff9aa8"></stop>
+                <stop offset="48%" stop-color="#f13659"></stop>
+                <stop offset="100%" stop-color="#bd1738"></stop>
+              </linearGradient>
+            </defs>
+            <path class="wave-line wave-soft-a" d="M0 90 C126 86 252 94 380 90 C508 86 634 94 760 90"></path>
+            <path class="wave-line wave-soft-b" d="M0 90 C126 86 252 94 380 90 C508 86 634 94 760 90"></path>
+            <path class="wave-line wave-main" d="M0 90 C126 86 252 94 380 90 C508 86 634 94 760 90"></path>
+          </svg>
+        </div>
+        <div class="demo-arrow" aria-hidden="true">→</div>
+        <div class="demo-text">
+          <p class="demo-label">Testo</p>
+          <div class="transcript-box" aria-label="Esempio illustrativo di testo trascritto">
+            <p class="typewriter-line">Parrocchettami trascrive i tuoi audio completamente offline, senza inviare nulla a servizi esterni.</p>
+            <p class="typewriter-line">Puoi esportare testo semplice, testo con timestamp o sottotitoli SRT.</p>
+          </div>
+          <small>* non è la reale interfaccia della app</small>
+        </div>
+      </section>
+
+      <section class="proof-row" aria-label="Punti principali">
+        <div>
+          <strong>Gira localmente</strong>
+          <span>Gli audio non vengono mai caricati su servizi esterni.</span>
+        </div>
+        <div>
+          <strong>Veloce e leggero</strong>
+          <span>Trascrive audio in 25 lingue con NVIDIA Parakeet.</span>
+        </div>
+        <div>
+          <strong>Export flessibile</strong>
+          <span>Testo con timestamp oppure file SRT.</span>
+        </div>
+      </section>
+
+      <section class="section modes modes-v2" id="features" aria-labelledby="features-title">
+        <div class="section-heading">
+          <h2 id="features-title">Due modalità di funzionamento, senza fronzoli.</h2>
+        </div>
+        <figure class="modes-screenshot">
+          <div class="mode-annotation file-annotation">
+            <span>Trascrivi file audio</span>
+          </div>
+          <div class="mode-annotation mic-annotation">
+            <span>Registra in diretta</span>
+          </div>
+          <svg class="mode-arrows" viewBox="0 0 1000 520" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <marker id="mode-arrow-head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z"></path>
+              </marker>
+            </defs>
+            <path class="mode-arrow file-arrow" d="M 77 38 C 19 198 92 271 199 280"></path>
+            <path class="mode-arrow mic-arrow" d="M 885 23 C 932 203 854 233 774 267"></path>
+          </svg>
+          <img src="assets/parrocchettami-app-modes.png" alt="Screenshot reale delle due modalità di Parrocchettami: trascrizione di un file audio e registrazione dal microfono.">
+        </figure>
+        <ul class="format-pills modes-formats" aria-label="Formati audio supportati">
+          <li>WAV</li>
+          <li>MP3</li>
+          <li>M4A</li>
+          <li>FLAC</li>
+          <li>OGG</li>
+          <li>AIFF</li>
+          <li>AAC</li>
+        </ul>
+        <div class="mode-copy-row">
+          <p>Trascina un file nella app o selezionalo dalla finestra di sistema per ottenere la trascrizione.</p>
+          <p>Puoi registrare direttamente da qualsiasi microfono collegato al tuo Mac e ottenere automaticamente il testo trascritto alla fine.</p>
+        </div>
+      </section>
+
+      <section class="privacy-band" aria-labelledby="privacy-title">
+        <div>
+          <h2 id="privacy-title">Facile da usare. Completamente privata.</h2>
+          <p>
+            Dopo il download del modello AI, Parrocchettami non richiede alcuna
+            connessione a internet per la massima privacy.
+          </p>
+        </div>
+        <ul>
+          <li>❌ Nessun account</li>
+          <li>❌ Nessun upload</li>
+          <li>❌ Nessun tracciamento</li>
+          <li>✅ Audio cancellati dopo la trascrizione</li>
+        </ul>
+      </section>
+
+      <section class="section screenshot-gallery" aria-label="Screenshot dell'app">
+        <div class="gallery-strip">
+          <figure class="gallery-shot">
+            <img src="assets/parrocchettami-gallery-recording.png" alt="Screenshot dell'app durante una registrazione audio.">
+          </figure>
+          <figure class="gallery-shot">
+            <img src="assets/parrocchettami-gallery-plain.png" alt="Screenshot dell'app con trascrizione in testo semplice.">
+          </figure>
+          <figure class="gallery-shot">
+            <img src="assets/parrocchettami-gallery-timestamped.png" alt="Screenshot dell'app con trascrizione e timestamp.">
+          </figure>
+          <figure class="gallery-shot">
+            <img src="assets/parrocchettami-gallery-srt.png" alt="Screenshot dell'app con esportazione SRT.">
+          </figure>
+        </div>
+      </section>
+
+      <section class="section languages" id="languages" aria-labelledby="languages-title">
+        <div class="section-heading compact">
+          <h2 id="languages-title">Parla la tua lingua.</h2>
+          <p>
+            Parrocchettami supporta 25 lingue europee. Scegli la lingua o lascia
+            che l'app la rilevi automaticamente.
+          </p>
+        </div>
+        <div class="language-stage" aria-label="Lingue supportate">
+          <div class="eu-mark" aria-hidden="true">
+            <svg viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="49"></circle>
+              <g>
+                <text x="50" y="18">★</text>
+                <text x="66" y="22">★</text>
+                <text x="78" y="34">★</text>
+                <text x="82" y="50">★</text>
+                <text x="78" y="66">★</text>
+                <text x="66" y="78">★</text>
+                <text x="50" y="82">★</text>
+                <text x="34" y="78">★</text>
+                <text x="22" y="66">★</text>
+                <text x="18" y="50">★</text>
+                <text x="22" y="34">★</text>
+                <text x="34" y="22">★</text>
+              </g>
+            </svg>
+          </div>
+          <div class="flag-ring" aria-hidden="true">
+            <span style="--i:0" data-label="Inglese">🇬🇧</span>
+            <span style="--i:1" data-label="Francese">🇫🇷</span>
+            <span style="--i:2" data-label="Tedesco">🇩🇪</span>
+            <span style="--i:3" data-label="Spagnolo">🇪🇸</span>
+            <span style="--i:4" data-label="Italiano">🇮🇹</span>
+            <span style="--i:5" data-label="Portoghese">🇵🇹</span>
+            <span style="--i:6" data-label="Olandese">🇳🇱</span>
+            <span style="--i:7" data-label="Polacco">🇵🇱</span>
+            <span style="--i:8" data-label="Russo">🇷🇺</span>
+            <span style="--i:9" data-label="Ucraino">🇺🇦</span>
+            <span style="--i:10" data-label="Ceco">🇨🇿</span>
+            <span style="--i:11" data-label="Svedese">🇸🇪</span>
+            <span style="--i:12" data-label="Danese">🇩🇰</span>
+            <span style="--i:13" data-label="Finlandese">🇫🇮</span>
+            <span style="--i:14" data-label="Ungherese">🇭🇺</span>
+            <span style="--i:15" data-label="Rumeno">🇷🇴</span>
+            <span style="--i:16" data-label="Slovacco">🇸🇰</span>
+            <span style="--i:17" data-label="Bulgaro">🇧🇬</span>
+            <span style="--i:18" data-label="Greco">🇬🇷</span>
+            <span style="--i:19" data-label="Croato">🇭🇷</span>
+            <span style="--i:20" data-label="Sloveno">🇸🇮</span>
+            <span style="--i:21" data-label="Estone">🇪🇪</span>
+            <span style="--i:22" data-label="Lituano">🇱🇹</span>
+            <span style="--i:23" data-label="Lettone">🇱🇻</span>
+            <span style="--i:24" data-label="Maltese">🇲🇹</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section install install-v2" id="install" aria-labelledby="install-title">
+        <div class="install-intro">
+          <h2 id="install-title">Installazione sicura:</h2>
+          <div class="install-explain">
+            <p>
+              Quando provi ad aprire l'app, macOS potrebbe bloccarti dicendo che
+              "Apple non ha potuto verificare questa app". Vuol dire che non è sicura?
+            </p>
+            <p>
+              No, questo avviso riguarda la <strong>notarizzazione</strong>: Apple richiede che
+              gli sviluppatori verifichino le proprie app, ma per farlo devono pagare
+              100 euro all'anno per l'Apple Developer Program.
+            </p>
+            <p>
+              Quando un utente prova a installare un'app non "notarizzata", macOS manda
+              questo avviso. Parrocchettami è sicura e open source, il suo codice si può
+              controllare e fare una build direttamente dal codice.
+            </p>
+          </div>
+        </div>
+        <div class="install-steps-card">
+          <h3>Istruzioni per installare Parrocchettami</h3>
+          <p><strong>Requisiti:</strong> macOS 14 o successivo, Mac Apple Silicon.</p>
+          <ol>
+            <li>Apri il file DMG e trascina Parrocchettami in Applicazioni.</li>
+            <li>Prova ad aprire l'app.</li>
+            <li>
+              Se macOS mostra l'avviso, apri Impostazioni di Sistema, poi Privacy e
+              Sicurezza.
+            </li>
+            <li>Scegli Apri comunque e conferma di voler aprire l'app.</li>
+          </ol>
+        </div>
+        <details class="install-warning-toggle">
+          <summary><span>Ti è apparso questo avviso?</span></summary>
+          <div class="install-screens" aria-label="Esempi reali di avvisi macOS">
+            <figure>
+              <img
+                src="https://cdsassets.apple.com/live/7WUAS350/images/macos/sequoia/macos-sequoia-app-not-opened-could-not-verify-free-from-malware.png"
+                alt="Esempio Apple di avviso macOS: l'app non è stata aperta perché Apple non può verificarla."
+              >
+              <figcaption>Avviso macOS quando Apple non può verificare l'app.</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://cdsassets.apple.com/live/7WUAS350/images/macos/sequoia/macos-sequoia-system-settings-privacy-and-security-open-app-anyway.png"
+                alt="Esempio Apple del pulsante Apri comunque in Privacy e Sicurezza."
+              >
+              <figcaption>Privacy e Sicurezza: usa Apri comunque.</figcaption>
+            </figure>
+          </div>
+        </details>
+      </section>
+
+      <section class="section faq-section" id="faq" aria-labelledby="faq-title">
+        <div class="section-heading compact">
+          <h2 id="faq-title">Domande frequenti</h2>
+          <p>
+            Le risposte pratiche prima di scaricare o installare l'app.
+          </p>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Perché macOS dice che Apple non può verificare l'app?</summary>
+            <p>
+              Succede perché Parrocchettami non è notarizzata da Apple, sistema
+              per cui serve un abbonamento al programma sviluppatori di Apple.
+              Siccome Parrocchettami è completamente gratuita, non posso
+              sostenere la spesa del programma sviluppatori, altro motivo per
+              cui non può al momento essere pubblicata una app mobile.
+            </p>
+            <p>
+              Se vuoi aiutarmi, puoi farmi una donazione, condividere la app con
+              altre persone o seguirmi sui social per supportarmi. Quando avrò
+              la possibilità, attiverò il controllo di Apple per la app.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Parrocchettami funziona senza internet?</summary>
+            <p>
+              Sì. Dopo il download del modello AI, la trascrizione gira
+              localmente sul Mac. Gli audio non vengono caricati su servizi
+              esterni e dopo la trascrizione vengono cancellati.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Quanto spazio richiede?</summary>
+            <p>
+              Il modello AI occupa circa 707 MB. Il binario parakeet-cli pesa
+              circa 3 MB; considera quindi poco meno di 1 GB di spazio libero
+              per stare comodo.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Ci saranno versioni per Windows, Linux, iOS o Android?</summary>
+            <p>
+              Al momento non sono previste. Il codice però è open source, quindi
+              chi vuole può studiarlo, adattarlo o proporre porting per altre
+              piattaforme. Se avrò le risorse per pubblicare la app su iOS, la
+              pubblicherò.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Che differenza c'è rispetto a Whisper?</summary>
+            <p>
+              Whisper è un modello AI per la trascrizione pubblicato da OpenAI:
+              a differenza di NVIDIA Parakeet è più pesante e richiede più
+              risorse, soprattutto per lingue diverse dall'inglese. Ad oggi
+              ritengo che Parakeet sia il modello più adatto.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Quali Mac sono supportati?</summary>
+            <p>
+              Parrocchettami supporta macOS 14 o successivo su Mac Apple
+              Silicon, quindi con il chip M1 o successivi.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section class="section credits-section" id="credits" aria-labelledby="credits-title">
+        <div class="credits-copy">
+          <h2 id="credits-title">Open source, licenze e credits.</h2>
+          <p>
+            Parrocchettami è software libero rilasciato sotto GPL-3.0-or-later:
+            puoi leggere il codice, studiarlo, modificarlo e ricompilarlo dal
+            sorgente.
+          </p>
+        </div>
+        <div class="credits-grid">
+          <article class="credit-card">
+            <span>Codice</span>
+            <h3>GPL-3.0-or-later</h3>
+            <a href="https://github.com/martinowong/parrocchettami/blob/main/LICENSE">Licenza</a>
+          </article>
+          <article class="credit-card">
+            <span>Motore</span>
+            <h3>parakeet.cpp</h3>
+            <a href="https://github.com/mudler/parakeet.cpp">Repository upstream</a>
+          </article>
+          <article class="credit-card">
+            <span>Modello AI</span>
+            <h3>NVIDIA Parakeet TDT</h3>
+            <a href="https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3">Scheda modello</a>
+          </article>
+          <article class="credit-card">
+            <span>Notices</span>
+            <h3>Componenti terze</h3>
+            <a href="https://github.com/martinowong/parrocchettami/blob/main/THIRD_PARTY_NOTICES.md">Credits completi</a>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <a class="brand footer-brand" href="#top">
+          <img src="assets/parrocchettami-macOS-icon.png" alt="">
+          <span>Parrocchettami</span>
+        </a>
+        <p>Trascrizione audio offline veloce e privata.</p>
+      </div>
+      <nav aria-label="Link footer">
+        <a href="#install">Download</a>
+        <a href="#credits">Credits</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://github.com/martinowong/parrocchettami">GitHub</a>
+        <a href="llms.txt">llms.txt</a>
+      </nav>
+      <p class="credits">
+        Sviluppato da <a href="https://oradecima.com">Martino Wong, @oradecima</a>.
+      </p>
+    </footer>
+
+    <script src="redesign-v2.js"></script>
+  </body>
+</html>

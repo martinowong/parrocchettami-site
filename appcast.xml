@@ -1,0 +1,58 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Parrocchettami</title>
+        <item>
+            <title>1.0.11</title>
+            <pubDate>Tue, 07 Jul 2026 18:20:00 +0200</pubDate>
+            <link>https://martinowong.github.io/parrocchettami-site/</link>
+            <sparkle:version>1.0.11</sparkle:version>
+            <sparkle:shortVersionString>1.0.11</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[# Parrocchettami 1.0.11
+
+### Security
+- Subprocess environments restricted to minimal variables (no shell secrets)
+- System opusdec fallback disabled during transcription (bundle only)
+- Transcription history file permissions set to owner-only (chmod 600)
+- Explicit NSAppTransportSecurity in Info.plist
+
+### Fixes
+- Keyboard shortcuts (space/return) now work during recording
+- Cancel button guards against overlapping transcriptions
+- Delete confirmation dialog for individual history entries
+- Resumable model downloads (cancelled downloads pick up where they left off)
+- Raw recording preserved if CAF-to-WAV conversion fails
+]]></description>
+            <enclosure url="https://github.com/martinowong/parrocchettami/releases/download/v1.0.11/Parrocchettami-1.0.11-Apple-Silicon.dmg" length="11888157" type="application/octet-stream" sparkle:edSignature="yIZdeR3a8zIp81Ifj1oWB2J9UUK+Bbnzya+7tHPK2QQleAOXdisioak1vJtB0efQ/9phAAWTQxVXhsq97/lxAw=="/>
+        </item>
+        <item>
+            <title>1.0.10</title>
+            <pubDate>Tue, 07 Jul 2026 14:29:43 +0200</pubDate>
+            <link>https://martinowong.github.io/parrocchettami-site/</link>
+            <sparkle:version>1.0.10</sparkle:version>
+            <sparkle:shortVersionString>1.0.10</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <enclosure url="https://github.com/martinowong/parrocchettami/releases/download/v1.0.10/Parrocchettami-1.0.10-Apple-Silicon.dmg" length="11847488" type="application/octet-stream" sparkle:edSignature="r3CqsPED57Yw/EgwX+Z9ouTC0FAP3CqI9ai73twhvF9Wxd2qrGE7PSPXw9x7Eb9lvUdeDP4lT5DrABSNnOr9Bg=="/>
+        </item>
+        <item>
+            <title>1.0.8</title>
+            <pubDate>Tue, 07 Jul 2026 11:32:29 +0200</pubDate>
+            <link>https://martinowong.github.io/parrocchettami-site/</link>
+            <sparkle:version>1.0.8</sparkle:version>
+            <sparkle:shortVersionString>1.0.8</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[# Parrocchettami 1.0.8 Public Beta
+
+- Adds Sparkle in-app update checks.
+- Updates parakeet.cpp to v0.4.0.
+- Shows the Parakeet engine version in the app info popover.
+- Fixes the double focus ring on the paused recording card.
+]]></description>
+            <enclosure url="https://github.com/martinowong/parrocchettami/releases/download/v1.0.8-beta.1/Parrocchettami-1.0.8-Apple-Silicon.dmg" length="8729826" type="application/octet-stream" sparkle:edSignature="v03grsdmIAwyFunE6KrvK6KSciY7Md40f/FaY9Ze7aiaSYlyBBq3g/W17D6wf2nsZxMsLNVMt8VC1dfvCuSvBQ=="/>
+        </item>
+    </channel>
+</rss>
