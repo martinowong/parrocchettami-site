@@ -33,19 +33,32 @@
           <h1 id="hero-title">Parrocchettami</h1>
           <p class="hero-claim">Trascrizione audio offline veloce e privata.</p>
           <p class="hero-subcopy">
-            Trasforma audio in testo completamente in locale, in modo privato e
-            veloce.
+            Per Mac Apple Silicon con macOS 14+. Nessun account, nessun upload.
           </p>
           <div class="hero-actions" aria-label="Azioni principali">
             <a class="button primary" href="#install">Download per macOS</a>
             <a class="button secondary" href="https://github.com/martinowong/parrocchettami">Vedi su GitHub</a>
           </div>
-          <p class="system-note">Apple Silicon, macOS 14+</p>
         </div>
 
         <div class="hero-art" aria-hidden="true">
           <img class="hero-bird" src="assets/parrocchettoflying Background Removed.png" alt="">
           <img class="hero-icon" src="assets/parrocchettami-macOS-icon.png" alt="">
+        </div>
+      </section>
+
+      <section class="proof-row" aria-label="Punti principali">
+        <div>
+          <strong>Gira localmente</strong>
+          <span>Gli audio non vengono mai caricati su servizi esterni.</span>
+        </div>
+        <div>
+          <strong>Veloce e leggero</strong>
+          <span>Trascrive audio in 25 lingue con NVIDIA Parakeet.</span>
+        </div>
+        <div>
+          <strong>Export flessibile</strong>
+          <span>Testo con timestamp oppure file SRT.</span>
         </div>
       </section>
 
@@ -73,21 +86,6 @@
             <p class="typewriter-line">Puoi esportare testo semplice, testo con timestamp o sottotitoli SRT.</p>
           </div>
           <small>* non è la reale interfaccia della app</small>
-        </div>
-      </section>
-
-      <section class="proof-row" aria-label="Punti principali">
-        <div>
-          <strong>Gira localmente</strong>
-          <span>Gli audio non vengono mai caricati su servizi esterni.</span>
-        </div>
-        <div>
-          <strong>Veloce e leggero</strong>
-          <span>Trascrive audio in 25 lingue con NVIDIA Parakeet.</span>
-        </div>
-        <div>
-          <strong>Export flessibile</strong>
-          <span>Testo con timestamp oppure file SRT.</span>
         </div>
       </section>
 
@@ -222,34 +220,46 @@
       <section class="section install install-v2" id="install" aria-labelledby="install-title">
         <div class="install-intro">
           <h2 id="install-title">Installazione sicura:</h2>
+          <p class="install-lede">
+            Parrocchettami richiede macOS 14 o successivo e un Mac Apple Silicon.
+          </p>
           <div class="install-explain">
             <p>
               Quando provi ad aprire l'app, macOS potrebbe bloccarti dicendo che
-              "Apple non ha potuto verificare questa app". Vuol dire che non è sicura?
+              <strong>"Apple non ha potuto verificare questa app"</strong>.
+              Vuol dire che non è sicura?
             </p>
             <p>
-              No, questo avviso riguarda la <strong>notarizzazione</strong>: Apple richiede che
-              gli sviluppatori verifichino le proprie app, ma per farlo devono pagare
-              100 euro all'anno per l'Apple Developer Program.
+              No: questo avviso riguarda la <strong>notarizzazione</strong>. Apple
+              richiede che gli sviluppatori verifichino le proprie app, ma per
+              farlo devono pagare 100 euro all'anno per l'Apple Developer Program.
             </p>
             <p>
-              Quando un utente prova a installare un'app non "notarizzata", macOS manda
-              questo avviso. Parrocchettami è sicura e open source, il suo codice si può
-              controllare e fare una build direttamente dal codice.
+              Parrocchettami è sicura e open source: il codice si può controllare
+              e si può fare una build direttamente dal sorgente.
             </p>
           </div>
         </div>
         <div class="install-steps-card">
-          <h3>Istruzioni per installare Parrocchettami</h3>
-          <p><strong>Requisiti:</strong> macOS 14 o successivo, Mac Apple Silicon.</p>
+          <span class="install-card-kicker">Istruzioni per installare Parrocchettami</span>
+          <h3>Scarica il DMG, copia l'app, poi autorizza il primo avvio.</h3>
           <ol>
-            <li>Apri il file DMG e trascina Parrocchettami in Applicazioni.</li>
-            <li>Prova ad aprire l'app.</li>
             <li>
-              Se macOS mostra l'avviso, apri Impostazioni di Sistema, poi Privacy e
-              Sicurezza.
+              <strong>Apri il DMG</strong>
+              <span>Trascina Parrocchettami nella cartella Applicazioni.</span>
             </li>
-            <li>Scegli Apri comunque e conferma di voler aprire l'app.</li>
+            <li>
+              <strong>Prova ad aprire l'app</strong>
+              <span>Se macOS mostra l'avviso di verifica, chiudi il messaggio.</span>
+            </li>
+            <li>
+              <strong>Vai in Privacy e Sicurezza</strong>
+              <span>Apri Impostazioni di Sistema e cerca la sezione dedicata all'app bloccata.</span>
+            </li>
+            <li>
+              <strong>Scegli Apri comunque</strong>
+              <span>Conferma: dal secondo avvio l'app si apre normalmente.</span>
+            </li>
           </ol>
         </div>
         <details class="install-warning-toggle">
@@ -272,7 +282,6 @@
           </div>
         </details>
       </section>
-
       <section class="section faq-section" id="faq" aria-labelledby="faq-title">
         <div class="section-heading compact">
           <h2 id="faq-title">Domande frequenti</h2>
@@ -370,6 +379,16 @@
             <h3>Componenti terze</h3>
             <a href="https://github.com/martinowong/parrocchettami/blob/main/THIRD_PARTY_NOTICES.md">Credits completi</a>
           </article>
+        </div>
+      </section>
+      <section class="final-cta" aria-labelledby="final-cta-title">
+        <div>
+          <h2 id="final-cta-title">Trascrivi audio offline, sul tuo Mac.</h2>
+          <p>Scarica Parrocchettami o controlla il codice sorgente su GitHub.</p>
+        </div>
+        <div class="final-cta-actions" aria-label="Azioni finali">
+          <a class="button primary" href="#install">Download per macOS</a>
+          <a class="button secondary" href="https://github.com/martinowong/parrocchettami">Vedi su GitHub</a>
         </div>
       </section>
     </main>
