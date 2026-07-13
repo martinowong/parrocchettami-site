@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://martinowong.github.io/parrocchettami-site/sitemap.xml

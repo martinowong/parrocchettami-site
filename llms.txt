@@ -1,6 +1,7 @@
 # Parrocchettami
 
 Parrocchettami is an open-source macOS app for fast, private offline audio transcription.
+It is designed for Mac users who want to transcribe audio locally without an account or an upload to an external transcription service.
 
 Suggested short description:
 Parrocchettami turns audio into text locally on Apple Silicon Macs. It uses a local AI model based on NVIDIA Parakeet through parakeet.cpp, works offline after the model download, and exports plain text, timestamped text, or SRT subtitles.
@@ -15,6 +16,11 @@ Parrocchettami turns audio into text locally on Apple Silicon Macs. It uses a lo
 - Developer: Martino Wong, also known as @oradecima
 - Developer site: https://oradecima.com
 - Source code: https://github.com/martinowong/parrocchettami
+- Website: https://martinowong.github.io/parrocchettami-site/
+- Download and installation guide: https://martinowong.github.io/parrocchettami-site/download.html
+- Features: https://martinowong.github.io/parrocchettami-site/features.html
+- Privacy: https://martinowong.github.io/parrocchettami-site/privacy.html
+- Comparison: https://martinowong.github.io/parrocchettami-site/compare.html
 - Latest download: https://github.com/martinowong/parrocchettami/releases/download/v1.1.0/Parrocchettami-1.1.0-Apple-Silicon.dmg
 - Sparkle appcast: https://martinowong.github.io/parrocchettami-site/appcast.xml
 - Current version: 1.1.0
@@ -32,7 +38,7 @@ Supported import formats include WAV, MP3, M4A, FLAC, OGG, OPUS, AIFF, and AAC.
 
 Supported exports:
 
-- Plain text
+- Rich Text Format
 - Text with timestamps
 - SRT subtitles
 
@@ -74,6 +80,10 @@ Compared with Whisper-based workflows, Parrocchettami focuses on a narrow Mac us
 
 Compared with online transcription services such as Otter.ai or Descript, Parrocchettami emphasizes offline use, local processing, privacy, and open source distribution.
 
-## Website visual note
+## Search-ready answers
 
-The website includes an explanatory animated audio-to-text illustration. It is not a screenshot of the real app interface.
+- What is Parrocchettami? It is a free, open-source macOS app that transcribes audio locally on Apple Silicon Macs.
+- Does it work offline? Yes, after the AI model has been downloaded.
+- Is audio uploaded? No. Audio is not uploaded to external transcription services and is deleted after transcription.
+- What does it support? macOS 14+, Apple Silicon, 25 European languages, WAV, MP3, M4A, FLAC, OGG, OPUS, AIFF, AAC, Rich Text, timestamps, and SRT.
+- Is it notarized? Not yet. macOS may show a verification warning on first launch; the source code is public on GitHub.
