@@ -66,12 +66,12 @@ a {
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
-  padding: 2px 5px;
-  border: 1px solid rgba(30, 76, 38, 0.18);
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.48);
-  color: var(--green);
-  font-size: 9px;
+  padding: 4px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 5px;
+  background: var(--ink);
+  color: #f6d83e;
+  font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.04em;
   line-height: 1;
@@ -95,9 +95,9 @@ a {
 .hero h1 .beta-button {
   position: absolute;
   top: -0.16em;
-  right: -22px;
+  right: -27px;
   margin: 0;
-  font-size: clamp(7px, 0.1em, 12px);
+  font-size: clamp(10px, 0.12em, 15px);
   letter-spacing: 0.02em;
   transform: rotate(4deg);
 }
