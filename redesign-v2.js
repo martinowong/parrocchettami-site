@@ -401,6 +401,17 @@ if (!reducedMotion && modesFigure && modeArrowSvg) {
 
 const galleryImages = Array.from(document.querySelectorAll(".gallery-shot img"));
 
+document.querySelectorAll(".beta-button").forEach((button) => {
+  button.addEventListener("click", () => {
+    button.classList.remove("is-springing");
+    void button.offsetWidth;
+    button.classList.add("is-springing");
+    button.addEventListener("animationend", () => {
+      button.classList.remove("is-springing");
+    }, { once: true });
+  });
+});
+
 if (galleryImages.length > 0) {
   const lightbox = document.createElement("div");
   lightbox.className = "gallery-lightbox";
