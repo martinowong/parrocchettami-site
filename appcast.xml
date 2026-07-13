@@ -3,6 +3,50 @@
     <channel>
         <title>Parrocchettami</title>
         <item>
+            <title>1.1.0</title>
+            <pubDate>Mon, 13 Jul 2026 01:56:57 +0200</pubDate>
+            <link>https://martinowong.github.io/parrocchettami-site/</link>
+            <sparkle:version>1.1.0</sparkle:version>
+            <sparkle:shortVersionString>1.1.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[## Parrocchettami 1.1
+
+Parrocchettami 1.1 is a substantial native macOS redesign. It brings a clearer sidebar workflow, richer transcript tools, reliable interface zoom, and a recording experience that stays in context from start to finish.
+
+### Highlights
+
+- A new native sidebar for starting transcriptions, searching history, and reopening recent work.
+- Redesigned file and microphone source cards with an in-place recording experience.
+- A polished transcript document with Rich Text, Timestamped, and SRT modes.
+- Bold, italic, and underline formatting in a persistent native text editor.
+- Contextual transcript search, match highlighting, one-click copy, and export.
+- Inline transcript renaming that stays synchronized with the sidebar.
+- Word and character counts plus duration, language, and format metadata.
+- Crisp app-wide zoom with `⌘+`, `⌘−`, and `⌘0`, including compact-window support.
+- More coherent Liquid Glass controls, subtle physical button feedback, and Reduce Motion support.
+
+### Reliability improvements
+
+- More resilient parsing of noisy and pretty-printed `parakeet-cli` output.
+- Explicit timestamp requests for Timestamped and SRT output.
+- Better handling of newer token-based CLI output and legacy plain-text output.
+- Clearer validation and diagnostics for malformed OPUS audio.
+- Hardened packaging and signing checks for Sparkle, `parakeet-cli`, `opusdec`, and bundled libraries.
+
+### Requirements
+
+- macOS 14 or later
+- Apple Silicon
+- All transcription remains local and offline
+
+This build is ad-hoc signed and not notarized. On first launch, macOS may require **right-clicking Parrocchettami and choosing Open**.
+
+For the complete list of changes, see `CHANGELOG.md` in the repository.
+]]></description>
+            <enclosure url="https://github.com/martinowong/parrocchettami/releases/download/v1.1.0/Parrocchettami-1.1.0-Apple-Silicon.dmg" length="12063910" type="application/octet-stream" sparkle:edSignature="zM861yeP1aHNTpYYEpBr92VfLgpMXdpWeI5nozMlIqEs/o8E2wCUc1bAMe+eLibvC0fpP4cBv5jNpL3/csEHDw=="/>
+        </item>
+        <item>
             <title>1.0.11</title>
             <pubDate>Tue, 07 Jul 2026 18:20:00 +0200</pubDate>
             <link>https://martinowong.github.io/parrocchettami-site/</link>
