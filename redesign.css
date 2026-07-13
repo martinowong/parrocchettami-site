@@ -66,12 +66,12 @@ a {
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
-  padding: 4px 7px;
+  padding: 2px 5px;
   border: 1px solid rgba(30, 76, 38, 0.18);
-  border-radius: 6px;
+  border-radius: 4px;
   background: rgba(255, 255, 255, 0.48);
   color: var(--green);
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 800;
   letter-spacing: 0.04em;
   line-height: 1;
@@ -93,10 +93,18 @@ a {
 }
 
 .hero h1 .beta-button {
+  position: absolute;
+  top: -0.16em;
+  right: -22px;
+  margin: 0;
+  font-size: clamp(7px, 0.1em, 12px);
+  letter-spacing: 0.02em;
+  transform: rotate(4deg);
+}
+
+.hero-title-lockup {
   position: relative;
-  top: -0.22em;
-  margin-left: 8px;
-  vertical-align: middle;
+  display: inline-block;
 }
 
 @keyframes beta-spring {
