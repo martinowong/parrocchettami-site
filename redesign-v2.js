@@ -1,6 +1,219 @@
 const wavePaths = Array.from(document.querySelectorAll(".wave-line"));
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+const siteHeader = document.querySelector(".site-header");
+const primaryNavigation = siteHeader?.querySelector(".nav-links");
+
+if (siteHeader && primaryNavigation) {
+  const menuButton = document.createElement("button");
+  menuButton.className = "mobile-menu-toggle";
+  menuButton.type = "button";
+  menuButton.textContent = "Menu";
+  menuButton.setAttribute("aria-expanded", "false");
+  menuButton.setAttribute("aria-label", "Apri il menu di navigazione");
+  siteHeader.insertBefore(menuButton, primaryNavigation);
+
+  const closeMenu = () => {
+    primaryNavigation.classList.remove("is-open");
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.setAttribute("aria-label", "Apri il menu di navigazione");
+  };
+
+  menuButton.addEventListener("click", () => {
+    const willOpen = !primaryNavigation.classList.contains("is-open");
+    primaryNavigation.classList.toggle("is-open", willOpen);
+    menuButton.setAttribute("aria-expanded", String(willOpen));
+    menuButton.setAttribute("aria-label", willOpen ? "Chiudi il menu di navigazione" : "Apri il menu di navigazione");
+  });
+
+  primaryNavigation.addEventListener("click", (event) => {
+    if (event.target.closest("a")) closeMenu();
+  });
+
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && primaryNavigation.classList.contains("is-open")) {
+      closeMenu();
+      menuButton.focus();
+    }
+  });
+}
+
+const downloadLinks = Array.from(document.querySelectorAll('a[href*="/releases/download/"][href$=".dmg"]'));
+
+if (downloadLinks.length > 0) {
+  const downloadUrl = downloadLinks[0].href;
+  const guideUrl = new URL("download.html", window.location.href);
+  const isDownloadPage = window.location.pathname.endsWith("/download.html");
+  const isMobileDownloadContext = () => {
+    const userAgent = navigator.userAgent || "";
+    const iPadOS = navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1;
+    return /Android|iPhone|iPad|iPod|Mobile/i.test(userAgent) || iPadOS || window.matchMedia("(max-width: 680px)").matches;
+  };
+
+  const mobileDialog = document.createElement("dialog");
+  mobileDialog.className = "mobile-download-dialog";
+  mobileDialog.setAttribute("aria-labelledby", "mobile-download-dialog-title");
+  mobileDialog.innerHTML = `
+    <div class="mobile-download-dialog-inner">
+      <button class="mobile-download-dialog-close" type="button" aria-label="Chiudi">×</button>
+      <p class="mobile-download-dialog-kicker">Solo per Mac</p>
+      <h2 id="mobile-download-dialog-title">Parrocchettami è un'app per Mac.</h2>
+      <p>Richiede un Mac Apple Silicon con macOS 14 o successivo. Invia questa pagina al tuo Mac oppure continua a esplorare il sito.</p>
+      <div class="mobile-download-dialog-actions">
+        <button class="button primary" type="button" data-mobile-share>Condividi il link</button>
+        <button class="mobile-download-dialog-copy" type="button" data-mobile-copy aria-label="Copia il link" title="Copia il link"><span aria-hidden="true">⧉</span></button>
+      </div>
+      <p class="mobile-download-dialog-status" aria-live="polite"></p>
+      <a class="mobile-ios-interest" href="https://oradecima.com/#/portal/support" data-ios-support-trigger>Ma lo voglio davvero sul telefono!</a>
+    </div>
+  `;
+  document.body.appendChild(mobileDialog);
+
+  const iosSupportDialog = document.createElement("dialog");
+  iosSupportDialog.className = "support-dialog ios-support-dialog";
+  iosSupportDialog.setAttribute("aria-labelledby", "ios-support-dialog-title");
+  iosSupportDialog.innerHTML = [
+    "<div class='support-dialog-inner'>",
+    "  <button class='support-dialog-close' type='button' data-ios-support-close aria-label='Chiudi'>×</button>",
+    "  <div class='support-dialog-hero'>",
+    "    <div class='support-dialog-hero-copy'>",
+    "      <p class='support-dialog-kicker'>Parrocchettami su iPhone</p>",
+    "      <h2 id='ios-support-dialog-title'>Vuoi Parrocchettami anche su iPhone?</h2>",
+    "    </div>",
+    "    <div class='support-dialog-mascot' aria-hidden='true'><img src='assets/parrocchettami-donation-mascot.png' alt=''></div>",
+    "  </div>",
+    "  <p>Pubblicare un'app sull'App Store richiede l'Apple Developer Program e risorse dedicate allo sviluppo iOS.</p>",
+    "  <p class='support-dialog-goal'><strong>Un possibile prossimo passo</strong>Se le donazioni copriranno il costo dell'Apple Developer Program, potrò valutare una versione iOS e, se sostenibile, pubblicarla sull'App Store.</p>",
+    "  <div class='support-dialog-actions'>",
+    "    <a class='button primary' href='https://oradecima.com/#/portal/support' target='_blank' rel='noopener noreferrer'>Sostieni il progetto <span aria-hidden='true'>↗</span></a>",
+    "    <button class='support-dialog-cancel' type='button' data-ios-support-close>Non ora</button>",
+    "  </div>",
+    "  <small>Pagamento gestito da Stripe.</small>",
+    "</div>"
+  ].join("");
+  document.body.appendChild(iosSupportDialog);
+
+  const closeMobileDialog = () => mobileDialog.close();
+  mobileDialog.querySelector(".mobile-download-dialog-close").addEventListener("click", closeMobileDialog);
+  mobileDialog.addEventListener("click", (event) => {
+    if (event.target === mobileDialog) closeMobileDialog();
+  });
+
+  const iosInterestLink = mobileDialog.querySelector("[data-ios-support-trigger]");
+  const closeIosSupportDialog = () => {
+    if (iosSupportDialog.open) iosSupportDialog.close();
+    document.body.classList.remove("support-dialog-open");
+  };
+
+  iosInterestLink.addEventListener("click", (event) => {
+    if (typeof iosSupportDialog.showModal !== "function") return;
+    event.preventDefault();
+    closeMobileDialog();
+    iosSupportDialog.showModal();
+    document.body.classList.add("support-dialog-open");
+    iosSupportDialog.querySelector(".support-dialog-close").focus();
+  });
+
+  iosSupportDialog.querySelectorAll("[data-ios-support-close]").forEach((button) => {
+    button.addEventListener("click", closeIosSupportDialog);
+  });
+  iosSupportDialog.addEventListener("click", (event) => {
+    if (event.target === iosSupportDialog) closeIosSupportDialog();
+  });
+  iosSupportDialog.addEventListener("close", () => {
+    document.body.classList.remove("support-dialog-open");
+  });
+
+  const shareButton = mobileDialog.querySelector("[data-mobile-share]");
+  const copyButton = mobileDialog.querySelector("[data-mobile-copy]");
+  const mobileStatus = mobileDialog.querySelector(".mobile-download-dialog-status");
+
+  shareButton.addEventListener("click", async () => {
+    const shareData = {
+      title: "Parrocchettami per macOS",
+      text: "Scarica Parrocchettami sul tuo Mac Apple Silicon.",
+      url: guideUrl.href
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+        mobileStatus.textContent = "Link condiviso.";
+      } catch (error) {
+        if (error.name !== "AbortError") mobileStatus.textContent = "Non è stato possibile aprire la condivisione.";
+      }
+      return;
+    }
+
+    window.location.href = `mailto:?subject=${encodeURIComponent(shareData.title)}&body=${encodeURIComponent(`${shareData.text}\n\n${shareData.url}`)}`;
+  });
+
+  copyButton.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(guideUrl.href);
+      copyButton.classList.remove("is-copied");
+      void copyButton.offsetWidth;
+      copyButton.classList.add("is-copied");
+      copyButton.querySelector("span").textContent = "✓";
+      copyButton.setAttribute("aria-label", "Link copiato");
+      mobileStatus.textContent = "Link copiato. Ora puoi inviarlo al tuo Mac.";
+      window.setTimeout(() => {
+        copyButton.classList.remove("is-copied");
+        copyButton.querySelector("span").textContent = "⧉";
+        copyButton.setAttribute("aria-label", "Copia il link");
+      }, 1400);
+    } catch {
+      mobileStatus.textContent = "Copia manualmente l'indirizzo dalla barra del browser.";
+    }
+  });
+
+  downloadLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      if (isMobileDownloadContext()) {
+        mobileStatus.textContent = "";
+        mobileDialog.showModal();
+        mobileDialog.querySelector(".mobile-download-dialog-close").focus();
+        return;
+      }
+
+      const downloadAnchor = document.createElement("a");
+      downloadAnchor.href = downloadUrl;
+      downloadAnchor.target = "_blank";
+      downloadAnchor.rel = "noopener noreferrer";
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+
+      if (!isDownloadPage) {
+        guideUrl.searchParams.set("download", "started");
+        window.setTimeout(() => {
+          window.location.href = guideUrl.href;
+        }, 160);
+      }
+    });
+  });
+
+  if (isDownloadPage && new URLSearchParams(window.location.search).get("download") === "started") {
+    const downloadMain = document.querySelector(".seo-main");
+    const downloadHero = downloadMain?.querySelector(".seo-hero");
+    if (downloadMain && downloadHero) {
+      const notice = document.createElement("p");
+      notice.className = "download-started-notice";
+      notice.textContent = "Il download è stato avviato in una nuova scheda. Qui trovi requisiti e istruzioni per il primo avvio.";
+      downloadMain.insertBefore(notice, downloadHero);
+    }
+  }
+}
+
+const realProductSection = document.querySelector("#features");
+const illustrativeDemo = document.querySelector(".transcription-demo");
+
+if (realProductSection && illustrativeDemo && (illustrativeDemo.compareDocumentPosition(realProductSection) & Node.DOCUMENT_POSITION_FOLLOWING)) {
+  illustrativeDemo.parentNode.insertBefore(realProductSection, illustrativeDemo);
+}
+
 if (wavePaths.length > 0) {
   const width = 760;
   const height = 180;
@@ -520,4 +733,230 @@ if (galleryImages.length > 0) {
     if (event.key === "ArrowLeft") showGalleryImage(currentGalleryIndex - 1);
     if (event.key === "ArrowRight") showGalleryImage(currentGalleryIndex + 1);
   });
+}
+
+const copyEditorIsLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+
+if (copyEditorIsLocal) {
+  const copyEditorStorageKey = "parrocchettami-copy-drafts-v4";
+  const copyEditorActiveKey = "parrocchettami-copy-editor-active";
+  const copyEditorPage = window.location.pathname.split("/").pop() || "index.html";
+  let copyEditorDrafts = { version: 4, changes: {} };
+  let copyEditorPrepared = false;
+
+  try {
+    const savedDrafts = window.localStorage.getItem(copyEditorStorageKey);
+    if (savedDrafts) copyEditorDrafts = JSON.parse(savedDrafts);
+  } catch {
+    copyEditorDrafts = { version: 4, changes: {} };
+  }
+
+  const copyEditor = document.createElement("aside");
+  copyEditor.className = "copy-editor";
+  copyEditor.setAttribute("aria-label", "Editor dei testi");
+  copyEditor.innerHTML = [
+    "<button class='copy-editor-launcher' type='button' data-copy-editor-open>Modifica testi</button>",
+    "<div class='copy-editor-bar'>",
+    "  <div class='copy-editor-heading'>",
+    "    <strong>Editor testi</strong>",
+    "    <span data-copy-editor-status>Nessuna modifica</span>",
+    "  </div>",
+    "  <nav class='copy-editor-pages' aria-label='Pagine da modificare'>",
+    "    <a href='index.html'>Home</a>",
+    "    <a href='features.html'>Funzioni</a>",
+    "    <a href='privacy.html'>Privacy</a>",
+    "    <a href='compare.html'>Confronto</a>",
+    "    <a href='download.html'>Installazione</a>",
+    "    <button type='button' data-copy-editor-support>Popup donazioni</button>",
+    "  </nav>",
+    "  <div class='copy-editor-actions'>",
+    "    <button type='button' data-copy-editor-copy>Copia modifiche</button>",
+    "    <button type='button' data-copy-editor-download>Scarica JSON</button>",
+    "    <button type='button' data-copy-editor-close>Fine</button>",
+    "  </div>",
+  "</div>"
+  ].join("");
+  document.body.appendChild(copyEditor);
+
+  const copyEditorStatus = copyEditor.querySelector("[data-copy-editor-status]");
+  const copyEditorOpenButton = copyEditor.querySelector("[data-copy-editor-open]");
+  const copyEditorCloseButton = copyEditor.querySelector("[data-copy-editor-close]");
+  const copyEditorCopyButton = copyEditor.querySelector("[data-copy-editor-copy]");
+  const copyEditorDownloadButton = copyEditor.querySelector("[data-copy-editor-download]");
+  const copyEditorSupportButton = copyEditor.querySelector("[data-copy-editor-support]");
+
+  if (!supportDialog) copyEditorSupportButton.remove();
+
+  copyEditor.querySelectorAll(".copy-editor-pages a").forEach((link) => {
+    if (link.getAttribute("href") === copyEditorPage) link.setAttribute("aria-current", "page");
+  });
+
+  const copyEditorSave = () => {
+    try {
+      window.localStorage.setItem(copyEditorStorageKey, JSON.stringify(copyEditorDrafts));
+    } catch {
+      copyEditorStatus.textContent = "Salvataggio non disponibile";
+    }
+  };
+
+  const copyEditorChangeCount = () => Object.keys(copyEditorDrafts.changes || {}).length;
+
+  const copyEditorRefreshStatus = (message) => {
+    const count = copyEditorChangeCount();
+    copyEditorStatus.textContent = message || (count === 0 ? "Nessuna modifica" : count + (count === 1 ? " modifica salvata" : " modifiche salvate"));
+  };
+
+  const copyEditorContext = (element) => ({
+    tag: element.tagName.toLowerCase(),
+    id: element.id || "",
+    className: typeof element.className === "string" ? element.className : "",
+    section: element.closest("section")?.id || ""
+  });
+
+  const copyEditorPrepare = () => {
+    if (copyEditorPrepared) return;
+    copyEditorPrepared = true;
+
+    const excluded = [
+      "script",
+      "style",
+      "noscript",
+      "svg",
+      "[aria-hidden='true']",
+      ".copy-editor",
+      ".typewriter-line",
+      ".gallery-lightbox",
+      ".flag-ring",
+      "[data-support-close]",
+      "input",
+      "textarea",
+      "select",
+      "option"
+    ].join(",");
+
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        const parent = node.parentElement;
+        if (!parent || !node.nodeValue.trim() || parent.closest(excluded)) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+
+    const textNodes = [];
+    while (walker.nextNode()) textNodes.push(walker.currentNode);
+
+    textNodes.forEach((node, index) => {
+      const match = node.nodeValue.match(/^(\s*)([\s\S]*?)(\s*)$/);
+      if (!match || !match[2]) return;
+
+      const editable = document.createElement("span");
+      const changeId = copyEditorPage + ":" + index;
+      const savedChange = copyEditorDrafts.changes?.[changeId];
+      editable.dataset.copyEditId = changeId;
+      editable.dataset.copyOriginal = match[2];
+      editable.textContent = savedChange?.value ?? match[2];
+      editable.contentEditable = "false";
+      editable.spellcheck = true;
+      editable.setAttribute("role", "textbox");
+      editable.setAttribute("aria-label", "Testo modificabile");
+
+      editable.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter") return;
+        event.preventDefault();
+        editable.blur();
+      });
+
+      editable.addEventListener("input", () => {
+        const value = editable.textContent || "";
+        const original = editable.dataset.copyOriginal || "";
+        if (value === original) {
+          delete copyEditorDrafts.changes[changeId];
+        } else {
+          copyEditorDrafts.changes[changeId] = {
+            page: copyEditorPage,
+            id: changeId,
+            original,
+            value,
+            context: copyEditorContext(editable.parentElement)
+          };
+        }
+        copyEditorSave();
+        copyEditorRefreshStatus("Salvato");
+        window.setTimeout(() => copyEditorRefreshStatus(), 700);
+      });
+
+      node.replaceWith(
+        document.createTextNode(match[1]),
+        editable,
+        document.createTextNode(match[3])
+      );
+    });
+
+    copyEditorRefreshStatus();
+  };
+
+  const copyEditorSetActive = (active) => {
+    copyEditorPrepare();
+    document.body.classList.toggle("copy-editor-active", active);
+    copyEditor.classList.toggle("is-active", active);
+    document.querySelectorAll("[data-copy-edit-id]").forEach((element) => {
+      element.contentEditable = active ? "plaintext-only" : "false";
+    });
+    try {
+      window.localStorage.setItem(copyEditorActiveKey, active ? "1" : "0");
+    } catch {
+      copyEditorRefreshStatus();
+    }
+    if (active) copyEditorStatus.focus?.();
+  };
+
+  const copyEditorManifest = () => ({
+    project: "parrocchettami-site",
+    version: 4,
+    exportedAt: new Date().toISOString(),
+    changes: Object.values(copyEditorDrafts.changes || {}).sort((a, b) => a.id.localeCompare(b.id))
+  });
+
+  copyEditorOpenButton.addEventListener("click", () => copyEditorSetActive(true));
+  copyEditorCloseButton.addEventListener("click", () => copyEditorSetActive(false));
+  copyEditorSupportButton?.addEventListener("click", () => {
+    if (!supportDialog || typeof supportDialog.showModal !== "function") return;
+    supportDialog.showModal();
+    document.body.classList.add("support-dialog-open");
+    supportDialog.querySelector("[data-copy-edit-id]")?.focus();
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!document.body.classList.contains("copy-editor-active")) return;
+    const editable = event.target.closest?.("[data-copy-edit-id]");
+    if (!editable || !editable.closest("a, button, summary, label")) return;
+    event.preventDefault();
+    event.stopPropagation();
+    editable.focus();
+  }, true);
+
+  copyEditorCopyButton.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(JSON.stringify(copyEditorManifest(), null, 2));
+      copyEditorRefreshStatus("Modifiche copiate");
+    } catch {
+      copyEditorRefreshStatus("Copia non disponibile. Usa Scarica JSON");
+    }
+  });
+
+  copyEditorDownloadButton.addEventListener("click", () => {
+    const blob = new Blob([JSON.stringify(copyEditorManifest(), null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const download = document.createElement("a");
+    download.href = url;
+    download.download = "parrocchettami-copy-final.json";
+    document.body.appendChild(download);
+    download.click();
+    download.remove();
+    URL.revokeObjectURL(url);
+    copyEditorRefreshStatus("JSON scaricato");
+  });
+
+  copyEditorPrepare();
+  if (window.localStorage.getItem(copyEditorActiveKey) === "1") copyEditorSetActive(true);
 }
