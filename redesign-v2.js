@@ -412,6 +412,46 @@ document.querySelectorAll(".beta-button").forEach((button) => {
   });
 });
 
+const supportDialog = document.querySelector("#support-dialog");
+const supportTriggers = Array.from(document.querySelectorAll("[data-support-trigger]"));
+const supportCloseButtons = supportDialog
+  ? Array.from(supportDialog.querySelectorAll("[data-support-close]"))
+  : [];
+
+if (supportDialog && supportTriggers.length > 0) {
+  let lastSupportTrigger = null;
+
+  const closeSupportDialog = () => {
+    if (supportDialog.open) supportDialog.close();
+    document.body.classList.remove("support-dialog-open");
+    lastSupportTrigger?.focus();
+  };
+
+  supportTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", (event) => {
+      if (typeof supportDialog.showModal !== "function") return;
+      event.preventDefault();
+      lastSupportTrigger = trigger;
+      supportDialog.showModal();
+      document.body.classList.add("support-dialog-open");
+      supportDialog.querySelector(".support-dialog-close")?.focus();
+    });
+  });
+
+  supportCloseButtons.forEach((button) => {
+    button.addEventListener("click", closeSupportDialog);
+  });
+
+  supportDialog.addEventListener("click", (event) => {
+    if (event.target === supportDialog) closeSupportDialog();
+  });
+
+  supportDialog.addEventListener("close", () => {
+    document.body.classList.remove("support-dialog-open");
+    lastSupportTrigger?.focus();
+  });
+}
+
 if (galleryImages.length > 0) {
   const lightbox = document.createElement("div");
   lightbox.className = "gallery-lightbox";

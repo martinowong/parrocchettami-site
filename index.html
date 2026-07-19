@@ -83,7 +83,7 @@
     </script>
     <link rel="icon" href="assets/parrocchettami-macOS-icon.png">
     <link rel="stylesheet" href="redesign.css?v=badge-dark-1">
-    <link rel="stylesheet" href="redesign-v2.css?v=95adc03">
+    <link rel="stylesheet" href="redesign-v2.css?v=support-modal-1">
   </head>
   <body>
     <header class="site-header" aria-label="Navigazione">
@@ -375,8 +375,10 @@
             </p>
             <p>
               Se vuoi aiutarmi, puoi farmi una donazione, condividere la app con
-              altre persone o seguirmi sui social per supportarmi. Quando avrò
-              la possibilità, attiverò il controllo di Apple per la app.
+              altre persone o seguirmi sui social per supportarmi. Quando le
+              donazioni saranno sufficienti a coprire il costo dell'Apple
+              Developer Program, notarizzerò l'app per aggiungere la verifica
+              di Apple e rendere l'installazione più semplice e sicura.
             </p>
           </details>
           <details class="faq-item">
@@ -431,6 +433,7 @@
             puoi leggere il codice, studiarlo, modificarlo e ricompilarlo dal
             sorgente.
           </p>
+          <a class="support-link" href="https://oradecima.com/#/portal/support" data-support-trigger aria-haspopup="dialog">Sostieni Parrocchettami <span aria-hidden="true">♥</span></a>
         </div>
         <div class="credits-grid">
           <article class="credit-card">
@@ -455,6 +458,28 @@
           </article>
         </div>
       </section>
+      <dialog class="support-dialog" id="support-dialog" aria-labelledby="support-dialog-title">
+        <div class="support-dialog-inner">
+          <button class="support-dialog-close" type="button" data-support-close aria-label="Chiudi">×</button>
+          <p class="support-dialog-kicker">Sostieni il progetto</p>
+          <h2 id="support-dialog-title">Aiuta Parrocchettami a restare gratuita e facile da installare.</h2>
+          <p>
+            Parrocchettami è gratuita, open source e gira interamente sul tuo Mac.
+            Anche un piccolo contributo aiuta a mantenerla e migliorarla.
+          </p>
+          <p class="support-dialog-goal">
+            <strong>Obiettivo della raccolta</strong>
+            Quando le donazioni saranno sufficienti a coprire il costo dell'Apple
+            Developer Program, notarizzerò l'app: Apple potrà verificarla e
+            l'installazione sarà più semplice e sicura.
+          </p>
+          <div class="support-dialog-actions">
+            <a class="button primary" href="https://oradecima.com/#/portal/support" target="_blank" rel="noopener noreferrer">Continua con Stripe <span aria-hidden="true">↗</span></a>
+            <button class="support-dialog-cancel" type="button" data-support-close>Non ora</button>
+          </div>
+          <small>Pagamento gestito da Stripe.</small>
+        </div>
+      </dialog>
       <section class="final-cta" aria-labelledby="final-cta-title">
         <div>
           <h2 id="final-cta-title">Trascrivi audio offline, sul tuo Mac.</h2>
@@ -484,6 +509,7 @@
         <a href="privacy.html">Privacy</a>
         <a href="compare.html">Confronto</a>
         <a href="download.html">Installazione</a>
+        <a href="https://oradecima.com/#/portal/support" data-support-trigger aria-haspopup="dialog">Sostieni il progetto</a>
         <a href="https://github.com/martinowong/parrocchettami">GitHub</a>
         <a href="llms.txt">llms.txt</a>
       </nav>
@@ -492,6 +518,6 @@
       </p>
     </footer>
 
-    <script src="redesign-v2.js?v=95adc03"></script>
+    <script src="redesign-v2.js?v=support-modal-1"></script>
   </body>
 </html>
