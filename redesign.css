@@ -27,6 +27,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: hidden;
   color: var(--ink);
   background:
     radial-gradient(circle at 88% 8%, rgba(246, 216, 62, 0.34), transparent 25rem),
@@ -724,7 +725,9 @@ tbody tr:last-child td {
 
 .site-footer nav {
   display: flex;
+  flex-wrap: wrap;
   gap: 18px;
+  row-gap: 12px;
   color: rgba(244, 255, 244, 0.78);
   font-size: 14px;
   font-weight: 700;
