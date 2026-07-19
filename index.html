@@ -73,6 +73,11 @@
               },
               {
                 "@type": "Question",
+                "name": "Parrocchettami diventerà a pagamento?",
+                "acceptedAnswer": { "@type": "Answer", "text": "No. Parrocchettami rimarrà sempre gratuita e open source. Chi vuole sostenere lo sviluppo, la manutenzione e i costi del programma sviluppatori Apple può contribuire con una donazione." }
+              },
+              {
+                "@type": "Question",
                 "name": "Quali Mac sono supportati?",
                 "acceptedAnswer": { "@type": "Answer", "text": "Parrocchettami supporta macOS 14 o successivo su Mac Apple Silicon, quindi con il chip M1 o successivi." }
               }
@@ -82,8 +87,8 @@
       }
     </script>
     <link rel="icon" href="assets/parrocchettami-macOS-icon.png">
-    <link rel="stylesheet" href="redesign.css?v=badge-dark-1">
-    <link rel="stylesheet" href="redesign-v2.css?v=support-modal-1">
+    <link rel="stylesheet" href="redesign.css?v=copy-editor-2">
+    <link rel="stylesheet" href="redesign-v2.css?v=copy-editor-8">
   </head>
   <body>
     <header class="site-header" aria-label="Navigazione">
@@ -94,24 +99,28 @@
       </a>
       <nav class="nav-links" aria-label="Navigazione principale">
         <a href="#features">Funzioni</a>
-        <a href="#languages">Lingue</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="compare.html">Confronto</a>
         <a href="#install">Installazione</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <a class="nav-cta" href="https://github.com/martinowong/parrocchettami/releases/download/v1.1.0/Parrocchettami-1.1.0-Apple-Silicon.dmg">Download</a>
+      <a class="nav-cta" href="https://github.com/martinowong/parrocchettami/releases/download/v1.1.0/Parrocchettami-1.1.0-Apple-Silicon.dmg">Scarica</a>
     </header>
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
           <h1 id="hero-title"><span class="hero-title-lockup">Parrocchettami<button class="beta-label beta-button" type="button" aria-label="Parrocchettami è in versione beta">Beta</button></span></h1>
-          <p class="hero-claim">Trascrizione audio offline veloce e privata.</p>
+          <p class="hero-claim">Trascrizione audio offline, veloce e privata.</p>
           <p class="hero-subcopy">
-            Per Mac Apple Silicon con macOS 14+. Nessun account, nessun upload.
+            Per Mac Apple Silicon. Nessun account, nessun upload.
           </p>
-          <div class="hero-actions" aria-label="Azioni principali">
-            <a class="button primary" href="https://github.com/martinowong/parrocchettami/releases/download/v1.1.0/Parrocchettami-1.1.0-Apple-Silicon.dmg">Download per macOS</a>
-            <a class="button secondary" href="https://github.com/martinowong/parrocchettami">Vedi su GitHub</a>
+          <div class="hero-action-cluster">
+            <div class="hero-actions" aria-label="Azioni principali">
+              <a class="button primary" href="https://github.com/martinowong/parrocchettami/releases/download/v1.1.0/Parrocchettami-1.1.0-Apple-Silicon.dmg">Download per macOS</a>
+              <a class="button secondary" href="https://github.com/martinowong/parrocchettami">Vedi su GitHub</a>
+            </div>
+            <a class="donation-cta hero-support-link" href="https://oradecima.com/#/portal/support" data-support-trigger aria-haspopup="dialog">Sostieni Parrocchettami <span class="donation-cta-heart" aria-hidden="true">♥</span></a>
           </div>
         </div>
 
@@ -123,16 +132,16 @@
 
       <section class="proof-row" aria-label="Punti principali">
         <div>
-          <strong>Gira localmente</strong>
+          <strong>Funziona localmente</strong>
           <span>Gli audio non vengono mai caricati su servizi esterni.</span>
         </div>
         <div>
           <strong>Veloce e leggero</strong>
-          <span>Trascrive audio in 25 lingue con NVIDIA Parakeet.</span>
+          <span>Performance rapide in 25 lingue con Nvidia Parakeet</span>
         </div>
         <div>
-          <strong>Export flessibile</strong>
-          <span>Testo con timestamp oppure file SRT.</span>
+          <strong>Export in formati multipli</strong>
+          <span>Export testuale, Timestamps, SRT</span>
         </div>
       </section>
 
@@ -154,7 +163,7 @@
         </div>
         <div class="demo-arrow" aria-hidden="true">→</div>
         <div class="demo-text">
-          <p class="demo-label">Testo</p>
+          <p class="demo-label">Testo*</p>
           <div class="transcript-box" aria-label="Esempio illustrativo di testo trascritto">
             <p class="typewriter-line">Parrocchettami trascrive i tuoi audio completamente offline, senza inviare nulla a servizi esterni.</p>
             <p class="typewriter-line">Puoi esportare testo semplice, testo con timestamp o sottotitoli SRT.</p>
@@ -165,7 +174,7 @@
 
       <section class="section modes modes-v2" id="features" aria-labelledby="features-title">
         <div class="section-heading">
-          <h2 id="features-title">Due modalità di funzionamento, senza fronzoli.</h2>
+          <h2 id="features-title"><span>Due modalità di funzionamento,</span><span>senza fronzoli.</span></h2>
         </div>
         <figure class="modes-screenshot">
           <div class="mode-annotation file-annotation">
@@ -195,8 +204,8 @@
           <li>AAC</li>
         </ul>
         <div class="mode-copy-row">
-          <p>Trascina un file nella app o selezionalo dalla finestra di sistema per ottenere la trascrizione.</p>
-          <p>Puoi registrare direttamente da qualsiasi microfono collegato al tuo Mac e ottenere automaticamente il testo trascritto alla fine.</p>
+          <p>Trascina un file nella app per ottenere la trascrizione.</p>
+          <p>O puoi registrare direttamente da qualsiasi microfono collegato al tuo Mac.</p>
         </div>
       </section>
 
@@ -237,8 +246,7 @@
         <div class="section-heading compact">
           <h2 id="languages-title">Parla la tua lingua.</h2>
           <p>
-            Parrocchettami supporta 25 lingue europee. Scegli la lingua o lascia
-            che l'app la rilevi automaticamente.
+            Parrocchettami supporta 25 lingue europee. Scegli la lingua o lascia che l'app la rilevi automaticamente.
           </p>
         </div>
         <div class="language-stage" aria-label="Lingue supportate">
@@ -295,7 +303,7 @@
         <div class="install-intro">
           <h2 id="install-title">Installazione sicura:</h2>
           <p class="install-lede">
-            Parrocchettami richiede macOS 14 o successivo e un Mac Apple Silicon.
+          Parrocchettami richiede macOS 14 o successivo e un Mac Apple Silicon (M1 o successivi).
           </p>
           <div class="install-explain">
             <p>
@@ -367,15 +375,15 @@
           <details class="faq-item">
             <summary>Perché macOS dice che Apple non può verificare l'app?</summary>
             <p>
-              Succede perché Parrocchettami non è notarizzata da Apple, sistema
+              Succede perché Parrocchettami non è "notarizzata" da Apple, il sistema
               per cui serve un abbonamento al programma sviluppatori di Apple.
               Siccome Parrocchettami è completamente gratuita, non posso
               sostenere la spesa del programma sviluppatori, altro motivo per
-              cui non può al momento essere pubblicata una app mobile.
+              cui non può al momento essere pubblicata come app mobile.
             </p>
             <p>
-              Se vuoi aiutarmi, puoi farmi una donazione, condividere la app con
-              altre persone o seguirmi sui social per supportarmi. Quando le
+              Se vuoi aiutarmi, puoi farmi una <a class="inline-support-link" href="https://oradecima.com/#/portal/support" data-support-trigger aria-haspopup="dialog">donazione</a>, condividere la app con
+              altre persone o seguirmi sui social (@oradecima) per supportarmi. Quando le
               donazioni saranno sufficienti a coprire il costo dell'Apple
               Developer Program, notarizzerò l'app per aggiungere la verifica
               di Apple e rendere l'installazione più semplice e sicura.
@@ -390,6 +398,15 @@
             </p>
           </details>
           <details class="faq-item">
+            <summary>Parrocchettami diventerà a pagamento?</summary>
+            <p>
+              No. Parrocchettami rimarrà sempre gratuita e open source. Se vuoi
+              sostenere lo sviluppo, la manutenzione e i costi del programma
+              sviluppatori Apple, puoi contribuire con una donazione.
+            </p>
+            <a class="donation-cta faq-support-link" href="https://oradecima.com/#/portal/support" data-support-trigger aria-haspopup="dialog">Fai una donazione <span class="donation-cta-heart" aria-hidden="true">♥</span></a>
+          </details>
+          <details class="faq-item">
             <summary>Quanto spazio richiede?</summary>
             <p>
               Il modello AI occupa circa 707 MB. Il binario parakeet-cli pesa
@@ -400,10 +417,9 @@
           <details class="faq-item">
             <summary>Ci saranno versioni per Windows, Linux, iOS o Android?</summary>
             <p>
-              Al momento non sono previste. Il codice però è open source, quindi
+              Al momento non sono previste. Il codice è open source, quindi
               chi vuole può studiarlo, adattarlo o proporre porting per altre
-              piattaforme. Se avrò le risorse per pubblicare la app su iOS, la
-              pubblicherò.
+              piattaforme. Se avrò le risorse per pubblicare la app su iOS, lo farò!
             </p>
           </details>
           <details class="faq-item">
@@ -433,7 +449,7 @@
             puoi leggere il codice, studiarlo, modificarlo e ricompilarlo dal
             sorgente.
           </p>
-          <a class="support-link" href="https://oradecima.com/#/portal/support" data-support-trigger aria-haspopup="dialog">Sostieni Parrocchettami <span aria-hidden="true">♥</span></a>
+          <a class="donation-cta support-link" href="https://oradecima.com/#/portal/support" data-support-trigger aria-haspopup="dialog">Sostieni Parrocchettami <span class="donation-cta-heart" aria-hidden="true">♥</span></a>
         </div>
         <div class="credits-grid">
           <article class="credit-card">
@@ -461,20 +477,27 @@
       <dialog class="support-dialog" id="support-dialog" aria-labelledby="support-dialog-title">
         <div class="support-dialog-inner">
           <button class="support-dialog-close" type="button" data-support-close aria-label="Chiudi">×</button>
-          <p class="support-dialog-kicker">Sostieni il progetto</p>
-          <h2 id="support-dialog-title">Aiuta Parrocchettami a restare gratuita e facile da installare.</h2>
+          <div class="support-dialog-hero">
+            <div class="support-dialog-hero-copy">
+              <p class="support-dialog-kicker">Donazioni</p>
+              <h2 id="support-dialog-title">Aiuta lo sviluppo di Parrocchettami.</h2>
+            </div>
+            <div class="support-dialog-mascot" aria-hidden="true">
+              <img src="assets/parrocchettami-donation-mascot.png" alt="">
+            </div>
+          </div>
           <p>
-            Parrocchettami è gratuita, open source e gira interamente sul tuo Mac.
+            Parrocchettami è e rimarrà gratuita e open source.
             Anche un piccolo contributo aiuta a mantenerla e migliorarla.
           </p>
           <p class="support-dialog-goal">
             <strong>Obiettivo della raccolta</strong>
             Quando le donazioni saranno sufficienti a coprire il costo dell'Apple
             Developer Program, notarizzerò l'app: Apple potrà verificarla e
-            l'installazione sarà più semplice e sicura.
+            l'installazione sarà più semplice e sicura. Dopodiché passeremo ad altre piattaforme.
           </p>
           <div class="support-dialog-actions">
-            <a class="button primary" href="https://oradecima.com/#/portal/support" target="_blank" rel="noopener noreferrer">Continua con Stripe <span aria-hidden="true">↗</span></a>
+            <a class="button primary" href="https://oradecima.com/#/portal/support" target="_blank" rel="noopener noreferrer">Continua con Stripe (importo libero) <span aria-hidden="true">↗</span></a>
             <button class="support-dialog-cancel" type="button" data-support-close>Non ora</button>
           </div>
           <small>Pagamento gestito da Stripe.</small>
@@ -486,8 +509,11 @@
           <p>Scarica Parrocchettami o controlla il codice sorgente su GitHub.</p>
         </div>
         <div class="final-cta-actions" aria-label="Azioni finali">
-          <a class="button primary" href="https://github.com/martinowong/parrocchettami/releases/download/v1.1.0/Parrocchettami-1.1.0-Apple-Silicon.dmg">Download per macOS</a>
-          <a class="button secondary" href="https://github.com/martinowong/parrocchettami">Vedi su GitHub</a>
+          <div class="final-cta-primary-actions">
+            <a class="button primary" href="https://github.com/martinowong/parrocchettami/releases/download/v1.1.0/Parrocchettami-1.1.0-Apple-Silicon.dmg">Download per macOS</a>
+            <a class="button secondary" href="https://github.com/martinowong/parrocchettami">Vedi su GitHub</a>
+          </div>
+          <a class="donation-cta final-cta-support" href="https://oradecima.com/#/portal/support" data-support-trigger aria-haspopup="dialog">Sostieni il progetto <span class="donation-cta-heart" aria-hidden="true">♥</span></a>
         </div>
       </section>
     </main>
@@ -518,6 +544,6 @@
       </p>
     </footer>
 
-    <script src="redesign-v2.js?v=support-modal-1"></script>
+    <script src="redesign-v2.js?v=copy-editor-5"></script>
   </body>
 </html>
