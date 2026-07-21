@@ -38,7 +38,7 @@ if (siteHeader && primaryNavigation) {
   });
 }
 
-const downloadLinks = Array.from(document.querySelectorAll('a[href*="/releases/download/"][href$=".dmg"]'));
+const downloadLinks = Array.from(document.querySelectorAll('a[href*="/releases/"][href$=".dmg"]'));
 
 if (downloadLinks.length > 0) {
   const downloadUrl = downloadLinks[0].href;
