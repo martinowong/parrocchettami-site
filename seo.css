@@ -82,6 +82,23 @@
   box-shadow: 0 18px 44px rgba(28, 89, 39, 0.07);
 }
 
+.seo-card-link {
+  display: block;
+  color: inherit;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.seo-card-link:hover,
+.seo-card-link:focus-visible {
+  border-color: rgba(30, 76, 38, 0.28);
+  box-shadow: 0 24px 54px rgba(28, 89, 39, 0.12);
+  outline: none;
+  transform: translateY(-2px);
+}
+
 .seo-card h3 + p,
 .seo-card h3 + ul {
   margin-top: 12px;

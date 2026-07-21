@@ -21,6 +21,9 @@ Parrocchettami turns audio into text locally on Apple Silicon Macs. It uses a lo
 - Features: https://martinowong.github.io/parrocchettami-site/features.html
 - Privacy: https://martinowong.github.io/parrocchettami-site/privacy.html
 - Comparison: https://martinowong.github.io/parrocchettami-site/compare.html
+- Parrocchettami vs FluidVoice: https://martinowong.github.io/parrocchettami-site/fluidvoice.html
+- Parrocchettami vs WhisperTranscribe: https://martinowong.github.io/parrocchettami-site/whispertranscribe.html
+- Parrocchettami vs Superwhisper: https://martinowong.github.io/parrocchettami-site/superwhisper.html
 - Latest download: https://github.com/martinowong/parrocchettami/releases/download/v1.1.0/Parrocchettami-1.1.0-Apple-Silicon.dmg
 - Sparkle appcast: https://martinowong.github.io/parrocchettami-site/appcast.xml
 - Current version: 1.1.0
@@ -79,6 +82,8 @@ Because the project is open source, users can inspect the source code and build 
 Compared with Whisper-based workflows, Parrocchettami focuses on a narrow Mac use case: a simple local app, no Python setup, no account, no upload of audio files, and a lightweight Parakeet-based model.
 
 Compared with online transcription services such as Otter.ai or Descript, Parrocchettami emphasizes offline use, local processing, privacy, and open source distribution.
+
+The dedicated comparison pages explain a second distinction: Parrocchettami focuses on transcribing existing audio files or recordings, while dictation tools are designed to insert spoken text directly into other apps.
 
 ## Search-ready answers
 
