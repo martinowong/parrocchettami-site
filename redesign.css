@@ -176,6 +176,82 @@ a {
   line-height: 1;
 }
 
+.language-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.language-hint {
+  position: absolute;
+  top: calc(100% + 13px);
+  right: -8px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: max-content;
+  max-width: min(270px, calc(100vw - 28px));
+  padding: 10px 10px 10px 13px;
+  border: 1px solid rgba(39, 125, 54, 0.2);
+  border-radius: 13px;
+  background: #ffffff;
+  box-shadow: 0 14px 30px rgba(28, 89, 39, 0.16);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 760;
+  line-height: 1.25;
+  animation: language-hint-in 260ms cubic-bezier(0.2, 0.8, 0.25, 1.15) both;
+}
+
+.language-hint::before {
+  position: absolute;
+  top: -6px;
+  right: 23px;
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid rgba(39, 125, 54, 0.2);
+  border-left: 1px solid rgba(39, 125, 54, 0.2);
+  background: #ffffff;
+  content: "";
+  transform: rotate(45deg);
+}
+
+.language-hint button {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--surface-soft);
+  color: var(--muted);
+  font: inherit;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.language-hint button:hover,
+.language-hint button:focus-visible {
+  background: #e3f2df;
+  color: var(--ink);
+}
+
+@keyframes language-hint-in {
+  from {
+    opacity: 0;
+    transform: translateY(-5px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .nav-cta {
   display: inline-flex;
   align-items: center;

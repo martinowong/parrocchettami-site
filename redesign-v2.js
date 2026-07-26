@@ -71,6 +71,57 @@ const uiCopy = isEnglishPage ? {
 const siteHeader = document.querySelector(".site-header");
 const primaryNavigation = siteHeader?.querySelector(".nav-links");
 
+const languageLink = document.querySelector(".language-link");
+const languageHintKey = "parrocchettami-language-hint-dismissed";
+const browserLanguages = Array.from(new Set([
+  ...(navigator.languages || []),
+  navigator.language
+].filter(Boolean)));
+const browserPrefersEnglish = !isEnglishPage && browserLanguages.some((language) => /^en(?:-|$)/i.test(language));
+
+const isLanguageHintDismissed = () => {
+  try {
+    return window.localStorage.getItem(languageHintKey) === "1";
+  } catch {
+    return false;
+  }
+};
+
+const rememberLanguageHintDismissal = () => {
+  try {
+    window.localStorage.setItem(languageHintKey, "1");
+  } catch {
+    // Private browsing can disable localStorage; the hint still dismisses for this page.
+  }
+};
+
+if (languageLink && browserPrefersEnglish && !isLanguageHintDismissed()) {
+  const languageSwitch = document.createElement("span");
+  languageSwitch.className = "language-switch";
+  languageLink.replaceWith(languageSwitch);
+  languageSwitch.appendChild(languageLink);
+
+  const languageHint = document.createElement("div");
+  languageHint.className = "language-hint";
+  languageHint.id = "language-hint";
+  languageHint.setAttribute("role", "status");
+  languageHint.innerHTML = `
+    <span>English version available</span>
+    <button type="button" aria-label="Dismiss language suggestion">×</button>
+  `;
+  languageSwitch.appendChild(languageHint);
+  languageLink.setAttribute("aria-describedby", languageHint.id);
+
+  const dismissLanguageHint = () => {
+    rememberLanguageHintDismissal();
+    languageLink.removeAttribute("aria-describedby");
+    languageHint.remove();
+  };
+
+  languageHint.querySelector("button").addEventListener("click", dismissLanguageHint);
+  languageLink.addEventListener("click", dismissLanguageHint);
+}
+
 if (siteHeader && primaryNavigation) {
   const menuButton = document.createElement("button");
   menuButton.className = "mobile-menu-toggle";
