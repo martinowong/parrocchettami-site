@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Privacy: how Parrocchettami works offline</title>
+    <meta name="description" content="Learn how Parrocchettami handles audio, the AI model, history, and connectivity: transcription happens locally on your Mac.">
+    <link rel="canonical" href="https://martinowong.github.io/parrocchettami-site/en/privacy.html">
+    <link rel="alternate" hreflang="it" href="https://martinowong.github.io/parrocchettami-site/privacy.html">
+    <link rel="alternate" hreflang="en" href="https://martinowong.github.io/parrocchettami-site/en/privacy.html">
+    <link rel="alternate" hreflang="x-default" href="https://martinowong.github.io/parrocchettami-site/privacy.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://martinowong.github.io/parrocchettami-site/en/privacy.html">
+    <meta property="og:title" content="Privacy: how Parrocchettami works offline">
+    <meta property="og:description" content="Audio processed locally on your Mac, without an account or uploads to external transcription services.">
+    <meta property="og:image" content="https://martinowong.github.io/parrocchettami-site/assets/parrocchettami-macOS-icon.png">
+    <link rel="icon" href="../assets/parrocchettami-macOS-icon.png">
+    <link rel="stylesheet" href="../redesign.css?v=copy-editor-2">
+    <link rel="stylesheet" href="../redesign-v2.css?v=copy-editor-8">
+    <link rel="stylesheet" href="../seo.css?v=1">
+  </head>
+  <body>
+    <header class="site-header" aria-label="Navigation">
+      <a class="brand" href="index.html" aria-label="Parrocchettami"><img src="../assets/parrocchettami-macOS-icon.png" alt=""><span>Parrocchettami</span><button class="beta-label beta-button" type="button" aria-label="Parrocchettami is in beta">Beta</button></a>
+      <nav class="nav-links" aria-label="Primary navigation"><a href="features.html">Features</a><a href="privacy.html">Privacy</a><a href="compare.html">Compare</a><a href="download.html">Installation</a><a href="index.html#faq">FAQ</a><a class="language-link" href="../privacy.html" lang="it" aria-label="Switch to Italian"><span class="language-link-icon" aria-hidden="true">🌐</span><span>IT</span></a></nav>
+      <a class="nav-cta" href="https://github.com/martinowong/parrocchettami/releases/latest/download/Parrocchettami-latest-Apple-Silicon.dmg">Download</a>
+    </header>
+
+    <main class="seo-main">
+      <div class="seo-hero">
+        <span class="seo-kicker">Privacy by design</span>
+        <h1>Transcription stays on your Mac.</h1>
+        <p class="seo-lede">Parrocchettami turns audio into text without sending files to external services.</p>
+      </div>
+
+      <section class="seo-section" aria-labelledby="flow-title">
+        <h2 id="flow-title">What happens to your data</h2>
+        <div class="seo-grid">
+          <article class="seo-card"><h3>1. Audio</h3><p>You can drop an audio file into the app or record from your Mac's microphone.</p></article>
+          <article class="seo-card"><h3>2. Transcribe locally</h3><p>The file is converted and processed by the NVIDIA Parakeet model running locally on your Mac.</p></article>
+          <article class="seo-card"><h3>3. Export the text</h3><p>You can get formatted text, timestamped text, or SRT subtitles.</p></article>
+          <article class="seo-card"><h3>4. Delete the audio</h3><p>Audio is never uploaded to external services and is automatically deleted after transcription.</p></article>
+        </div>
+      </section>
+
+      <section class="seo-section seo-prose" aria-labelledby="offline-title">
+        <h2 id="offline-title">Does it really work offline?</h2>
+        <p>Yes, after the initial AI model download. A connection is needed for the model and updates, not for everyday transcription.</p>
+        <h3>No account</h3>
+        <p>Parrocchettami does not require registration, login, or a cloud account to transcribe your audio.</p>
+        <h3>What is stored</h3>
+        <p>Transcript history is kept locally in the app archive so you can reopen results. Audio files are deleted after transcription.</p>
+        <h3>Code verificabile</h3>
+        <p>The project is open source. You can read the code on <a href="https://github.com/martinowong/parrocchettami">GitHub</a> and build the app directly from source.</p>
+        <div class="seo-note"><strong>Model note:</strong> the AI model is about 707 MB and is downloaded separately from the app. After downloading, the model stays on your Mac.</div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div><a class="brand footer-brand" href="index.html"><img src="../assets/parrocchettami-macOS-icon.png" alt=""><span>Parrocchettami</span><button class="beta-label beta-button" type="button" aria-label="Parrocchettami is in beta">Beta</button></a><p>Fast, private offline audio transcription.</p></div>
+      <nav class="seo-footer-links" aria-label="Footer links"><a href="index.html">Home</a><a href="features.html">Features</a><a href="download.html">Installation</a><a href="compare.html">Compare</a><a href="index.html#faq">FAQ</a><a href="https://github.com/martinowong/parrocchettami">GitHub</a></nav>
+      <p class="credits">Developed by <a href="https://oradecima.com">Martino Wong, @oradecima</a>.</p>
+    </footer>
+    <script src="../redesign-v2.js?v=copy-editor-5"></script>
+  </body>
+</html>

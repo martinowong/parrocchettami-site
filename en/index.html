@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Parrocchettami (Beta) - Fast, private offline audio transcription</title>
+    <meta
+      name="description"
+      content="Parrocchettami is a macOS app for transcribing audio offline, quickly, without sending data to external services."
+    >
+    <link rel="canonical" href="https://martinowong.github.io/parrocchettami-site/en/">
+    <link rel="alternate" hreflang="it" href="https://martinowong.github.io/parrocchettami-site/">
+    <link rel="alternate" hreflang="en" href="https://martinowong.github.io/parrocchettami-site/en/">
+    <link rel="alternate" hreflang="x-default" href="https://martinowong.github.io/parrocchettami-site/">
+    <meta name="theme-color" content="#fbfdf8">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://martinowong.github.io/parrocchettami-site/en/">
+    <meta property="og:title" content="Parrocchettami (Beta) - Fast, private offline audio transcription">
+    <meta property="og:description" content="Transcribe audio locally on Apple Silicon Mac, without an account or uploads.">
+    <meta property="og:image" content="https://martinowong.github.io/parrocchettami-site/assets/parrocchettami-macOS-icon.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Parrocchettami (Beta) - Fast, private offline audio transcription">
+    <meta name="twitter:description" content="Local, private audio transcription for Apple Silicon Mac.">
+    <meta name="twitter:image" content="https://martinowong.github.io/parrocchettami-site/assets/parrocchettami-macOS-icon.png">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://martinowong.github.io/parrocchettami-site/en/#software",
+            "name": "Parrocchettami",
+            "description": "Open source macOS app for transcribing audio locally and offline.",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "macOS 14 or later",
+            "softwareVersion": "1.1.0",
+            "url": "https://martinowong.github.io/parrocchettami-site/en/",
+            "downloadUrl": "https://github.com/martinowong/parrocchettami/releases/latest/download/Parrocchettami-latest-Apple-Silicon.dmg",
+            "isAccessibleForFree": true,
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "EUR"
+            },
+            "author": { "@id": "https://martinowong.github.io/parrocchettami-site/en/#developer" },
+            "featureList": [
+              "Local offline transcription",
+              "25 European languages",
+              "Rich Text, timestamp, and SRT export"
+            ]
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://martinowong.github.io/parrocchettami-site/en/#developer",
+            "name": "Martino Wong",
+            "url": "https://oradecima.com",
+            "sameAs": [
+              "https://github.com/martinowong",
+              "https://oradecima.com"
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://martinowong.github.io/parrocchettami-site/en/#faq-schema",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Does Parrocchettami work without internet?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. After downloading the AI model, transcription runs locally on your Mac. Audio is not uploaded to external services and is deleted after transcription." }
+              },
+              {
+                "@type": "Question",
+                "name": "How much space does Parrocchettami require?",
+                "acceptedAnswer": { "@type": "Answer", "text": "The AI model is about 707 MB. Allow just under 1 GB of free space." }
+              },
+              {
+                "@type": "Question",
+                "name": "Will Parrocchettami become paid?",
+                "acceptedAnswer": { "@type": "Answer", "text": "No. Parrocchettami will always remain free and open source. Anyone who wants to support development, maintenance, and the Apple developer program cost can make a donation." }
+              },
+              {
+                "@type": "Question",
+                "name": "Which Macs are supported?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Parrocchettami supports macOS 14 or later on Apple Silicon Macs with an M1 chip or later." }
+              },
+              {
+                "@type": "Question",
+                "name": "Is Parrocchettami a dictation app?",
+                "acceptedAnswer": { "@type": "Answer", "text": "No. Parrocchettami transcribes audio files and recordings offline on your Mac. If you want to dictate while writing and insert text directly into other apps, FluidVoice is a better fit." }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="icon" href="../assets/parrocchettami-macOS-icon.png">
+    <link rel="stylesheet" href="../redesign.css?v=copy-editor-2">
+    <link rel="stylesheet" href="../redesign-v2.css?v=copy-editor-8">
+  </head>
+  <body>
+    <header class="site-header" aria-label="Navigation">
+      <a class="brand" href="#top" aria-label="Parrocchettami">
+        <img src="../assets/parrocchettami-macOS-icon.png" alt="">
+        <span>Parrocchettami</span>
+        <button class="beta-label beta-button" type="button" aria-label="Parrocchettami is in beta">Beta</button>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#features">Features</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="compare.html">Compare</a>
+        <a href="#install">Installation</a>
+        <a href="#faq">FAQ</a>
+        <a class="language-link" href="../index.html" lang="it" aria-label="Passa all'italiano"><span class="language-link-icon" aria-hidden="true">🌐</span><span>IT</span></a>
+      </nav>
+      <a class="nav-cta" href="https://github.com/martinowong/parrocchettami/releases/latest/download/Parrocchettami-latest-Apple-Silicon.dmg">Download</a>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <h1 id="hero-title"><span class="hero-title-lockup">Parrocchettami<button class="beta-label beta-button" type="button" aria-label="Parrocchettami is in beta">Beta</button></span></h1>
+          <p class="hero-claim">Fast, private offline audio transcription.</p>
+          <p class="hero-subcopy">
+            For Apple Silicon Macs. No account, no uploads.
+          </p>
+          <div class="hero-action-cluster">
+            <div class="hero-actions" aria-label="Primary actions">
+              <a class="button primary" href="https://github.com/martinowong/parrocchettami/releases/latest/download/Parrocchettami-latest-Apple-Silicon.dmg">Download for macOS</a>
+              <a class="button secondary" href="https://github.com/martinowong/parrocchettami">View on GitHub</a>
+            </div>
+            <a class="donation-cta hero-support-link" href="https://oradecima.com/#/portal/support" data-support-trigger aria-haspopup="dialog">Support Parrocchettami <span class="donation-cta-heart" aria-hidden="true">♥</span></a>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <img class="hero-bird" src="../assets/parrocchettoflying Background Removed.png" alt="">
+          <img class="hero-icon" src="../assets/parrocchettami-macOS-icon.png" alt="">
+        </div>
+      </section>
+
+      <section class="proof-row" aria-label="Highlights">
+        <div>
+          <strong>Runs locally</strong>
+          <span>Your audio is never uploaded to external services.</span>
+        </div>
+        <div>
+          <strong>Fast and lightweight</strong>
+          <span>Fast performance in 25 languages with NVIDIA Parakeet</span>
+        </div>
+        <div>
+          <strong>Multiple export formats</strong>
+          <span>Plain text, timestamps, and SRT export</span>
+        </div>
+      </section>
+
+      <section class="transcription-demo" aria-labelledby="demo-title">
+        <div class="demo-audio">
+          <p class="demo-label" id="demo-title">Audio</p>
+          <svg class="speech-wave" viewBox="0 0 760 180" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="voice-red" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0%" stop-color="#ff9aa8"></stop>
+                <stop offset="48%" stop-color="#f13659"></stop>
+                <stop offset="100%" stop-color="#bd1738"></stop>
+              </linearGradient>
+            </defs>
+            <path class="wave-line wave-soft-a" d="M0 90 C126 86 252 94 380 90 C508 86 634 94 760 90"></path>
+            <path class="wave-line wave-soft-b" d="M0 90 C126 86 252 94 380 90 C508 86 634 94 760 90"></path>
+            <path class="wave-line wave-main" d="M0 90 C126 86 252 94 380 90 C508 86 634 94 760 90"></path>
+          </svg>
+        </div>
+        <div class="demo-arrow" aria-hidden="true">→</div>
+        <div class="demo-text">
+          <p class="demo-label">Text*</p>
+          <div class="transcript-box" aria-label="Illustrative example of transcribed text">
+            <p class="typewriter-line">Parrocchettami transcribes your audio completely offline, without sending anything to external services.</p>
+            <p class="typewriter-line">You can export plain text, timestamped text, or SRT subtitles.</p>
+          </div>
+          <small>* this is not the actual app interface</small>
+        </div>
+      </section>
+
+      <section class="section modes modes-v2" id="features" aria-labelledby="features-title">
+        <div class="section-heading">
+          <h2 id="features-title"><span>Two ways to work,</span><span>easy peasy.</span></h2>
+        </div>
+        <figure class="modes-screenshot">
+          <div class="mode-annotation file-annotation">
+            <span>Transcribe an audio file</span>
+          </div>
+          <div class="mode-annotation mic-annotation">
+            <span>Record live</span>
+          </div>
+          <svg class="mode-arrows" viewBox="0 0 1000 520" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <marker id="mode-arrow-head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z"></path>
+              </marker>
+            </defs>
+            <path class="mode-arrow file-arrow" d="M 77 38 C 19 198 92 271 199 280"></path>
+            <path class="mode-arrow mic-arrow" d="M 885 23 C 932 203 854 233 774 267"></path>
+          </svg>
+          <img src="../assets/parrocchettami-app-modes.png" alt="Real screenshot of Parrocchettami's two modes: audio file transcription and microphone recording.">
+        </figure>
+        <ul class="format-pills modes-formats" aria-label="Supported audio formats">
+          <li>WAV</li>
+          <li>MP3</li>
+          <li>M4A</li>
+          <li>FLAC</li>
+          <li>OGG</li>
+          <li>AIFF</li>
+          <li>AAC</li>
+        </ul>
+        <div class="mode-copy-row">
+          <p>Drop a file into the app to transcribe it.</p>
+          <p>Or record directly from any microphone connected to your Mac.</p>
+        </div>
+      </section>
+
+      <section class="privacy-band" aria-labelledby="privacy-title">
+        <div>
+          <h2 id="privacy-title">Easy to use. Completely private.</h2>
+          <p>
+            After downloading the AI model, Parrocchettami needs no internet connection for maximum privacy.
+          </p>
+        </div>
+        <ul>
+          <li>❌ No account</li>
+          <li>❌ No uploads</li>
+          <li>❌ No tracking</li>
+          <li>✅ Audio deleted after transcription</li>
+        </ul>
+      </section>
+
+      <section class="section screenshot-gallery" aria-label="App screenshots">
+        <div class="gallery-strip">
+          <figure class="gallery-shot">
+            <img src="../assets/parrocchettami-gallery-recording.png" alt="App screenshot during an audio recording.">
+          </figure>
+          <figure class="gallery-shot">
+            <img src="../assets/parrocchettami-gallery-plain.png" alt="App screenshot with a plain text transcript.">
+          </figure>
+          <figure class="gallery-shot">
+            <img src="../assets/parrocchettami-gallery-timestamped.png" alt="App screenshot with a timestamped transcript.">
+          </figure>
+          <figure class="gallery-shot">
+            <img src="../assets/parrocchettami-gallery-srt.png" alt="App screenshot with SRT export.">
+          </figure>
+        </div>
+      </section>
+
+      <section class="section languages" id="languages" aria-labelledby="languages-title">
+        <div class="section-heading compact">
+          <h2 id="languages-title">Speaks your european language.</h2>
+          <p>
+            Parrocchettami supports 25 European languages. Choose a language or let the app detect it automatically.
+          </p>
+        </div>
+        <div class="language-stage" aria-label="Supported languages">
+          <div class="eu-mark" aria-hidden="true">
+            <svg viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="49"></circle>
+              <g>
+                <text x="50" y="18">★</text>
+                <text x="66" y="22">★</text>
+                <text x="78" y="34">★</text>
+                <text x="82" y="50">★</text>
+                <text x="78" y="66">★</text>
+                <text x="66" y="78">★</text>
+                <text x="50" y="82">★</text>
+                <text x="34" y="78">★</text>
+                <text x="22" y="66">★</text>
+                <text x="18" y="50">★</text>
+                <text x="22" y="34">★</text>
+                <text x="34" y="22">★</text>
+              </g>
+            </svg>
+          </div>
+          <div class="flag-ring" aria-hidden="true">
+            <span style="--i:0" data-label="English">🇬🇧</span>
+            <span style="--i:1" data-label="French">🇫🇷</span>
+            <span style="--i:2" data-label="German">🇩🇪</span>
+            <span style="--i:3" data-label="Spanish">🇪🇸</span>
+            <span style="--i:4" data-label="Italian">🇮🇹</span>
+            <span style="--i:5" data-label="Portuguese">🇵🇹</span>
+            <span style="--i:6" data-label="Dutch">🇳🇱</span>
+            <span style="--i:7" data-label="Polish">🇵🇱</span>
+            <span style="--i:8" data-label="Russian">🇷🇺</span>
+            <span style="--i:9" data-label="Ukrainian">🇺🇦</span>
+            <span style="--i:10" data-label="Czech">🇨🇿</span>
+            <span style="--i:11" data-label="Swedish">🇸🇪</span>
+            <span style="--i:12" data-label="Danish">🇩🇰</span>
+            <span style="--i:13" data-label="Finnish">🇫🇮</span>
+            <span style="--i:14" data-label="Hungarian">🇭🇺</span>
+            <span style="--i:15" data-label="Romanian">🇷🇴</span>
+            <span style="--i:16" data-label="Slovak">🇸🇰</span>
+            <span style="--i:17" data-label="Bulgarian">🇧🇬</span>
+            <span style="--i:18" data-label="Greek">🇬🇷</span>
+            <span style="--i:19" data-label="Croatian">🇭🇷</span>
+            <span style="--i:20" data-label="Slovenian">🇸🇮</span>
+            <span style="--i:21" data-label="Estonian">🇪🇪</span>
+            <span style="--i:22" data-label="Lithuanian">🇱🇹</span>
+            <span style="--i:23" data-label="Latvian">🇱🇻</span>
+            <span style="--i:24" data-label="Maltese">🇲🇹</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section install install-v2" id="install" aria-labelledby="install-title">
+        <div class="install-intro">
+          <h2 id="install-title">Safe installation:</h2>
+          <p class="install-lede">
+          Parrocchettami requires macOS 14 or later and an Apple Silicon Mac (M1 or later).
+          </p>
+          <div class="install-explain">
+            <p>
+              When you try to open the app, macOS may stop you and say that
+              <strong>"Apple could not verify this app"</strong>.
+              Does that mean it is unsafe?
+            </p>
+            <p>
+              No: this warning is about <strong>notarization</strong>. Apple
+              requires developers to verify their apps, but doing so
+              requires paying 100 euros per year for the Apple Developer Program.
+            </p>
+            <p>
+              Parrocchettami is safe and open source: you can inspect the code and build the app directly from source.
+            </p>
+          </div>
+        </div>
+        <div class="install-steps-card">
+          <span class="install-card-kicker">Instructions for installing Parrocchettami</span>
+          <h3>Download the DMG, copy the app, then authorize the first launch.</h3>
+          <ol>
+            <li>
+              <strong>Open the DMG</strong>
+              <span>Drag Parrocchettami into the Applications folder.</span>
+            </li>
+            <li>
+              <strong>Try to open the app</strong>
+              <span>If macOS shows the verification warning, close the message.</span>
+            </li>
+            <li>
+              <strong>Open Privacy & Security</strong>
+              <span>Open System Settings and find the section for the blocked app.</span>
+            </li>
+            <li>
+              <strong>Choose Open Anyway</strong>
+              <span>Confirm: the app will open normally from the second launch onward.</span>
+            </li>
+          </ol>
+        </div>
+        <details class="install-warning-toggle">
+          <summary><span>Did you see this warning?</span></summary>
+          <div class="install-screens" aria-label="Real examples of macOS warnings">
+            <figure>
+              <img
+                src="https://cdsassets.apple.com/live/7WUAS350/images/macos/sequoia/macos-sequoia-app-not-opened-could-not-verify-free-from-malware.png"
+                alt="Apple example of a macOS warning: the app was not opened because Apple could not verify it."
+              >
+              <figcaption>macOS warning shown when Apple cannot verify the app.</figcaption>
+            </figure>
+            <figure>
+              <img
+                src="https://cdsassets.apple.com/live/7WUAS350/images/macos/sequoia/macos-sequoia-system-settings-privacy-and-security-open-app-anyway.png"
+                alt="Apple example of the Open Anyway button in Privacy & Security."
+              >
+              <figcaption>Privacy & Security: choose Open Anyway.</figcaption>
+            </figure>
+          </div>
+        </details>
+      </section>
+      <section class="section faq-section" id="faq" aria-labelledby="faq-title">
+        <div class="section-heading compact">
+          <h2 id="faq-title">Frequently asked questions</h2>
+          <p>
+            Practical answers before downloading or installing the app.
+          </p>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Why does macOS say Apple could not verify the app?</summary>
+            <p>
+              This happens because Parrocchettami is not yet notarized by Apple, a
+              process that requires an Apple Developer Program membership.
+              Because Parrocchettami is completely free, I cannot currently cover the developer program cost; this is also why there is no mobile release yet.
+            </p>
+            <p>
+              If you want to help, you can make a <a class="inline-support-link" href="https://oradecima.com/#/portal/support" data-support-trigger aria-haspopup="dialog">donation</a>, share the app with others, or follow me on social media (@oradecima). When donations are enough to cover the Apple Developer Program, I will notarize the app to add Apple's verification and make installation simpler and safer.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Does Parrocchettami work without internet?</summary>
+            <p>
+              Yes. After downloading the AI model, transcription runs locally on your Mac. Audio is not uploaded to external services and is deleted after transcription.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Will Parrocchettami become paid?</summary>
+            <p>
+              No. Parrocchettami will always remain free and open source. If you want to support development, maintenance, and the Apple developer program cost, you can make a donation.
+            </p>
+            <a class="donation-cta faq-support-link" href="https://oradecima.com/#/portal/support" data-support-trigger aria-haspopup="dialog">Make a donation <span class="donation-cta-heart" aria-hidden="true">♥</span></a>
+          </details>
+          <details class="faq-item">
+            <summary>How much space does it require?</summary>
+            <p>
+              The AI model is about 707 MB. The parakeet-cli binary is about 3 MB, so allow just under 1 GB of free space.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Will there be versions for Windows, Linux, iOS, or Android?</summary>
+            <p>
+              Not at the moment. The code is open source, so anyone can study it, adapt it, or propose ports for other platforms. If I have the resources to release an iOS app, I will!
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>How is it different from Whisper?</summary>
+            <p>
+              Whisper is an AI transcription model published by OpenAI. I consider Nvidia Parakeet to perform better, especially for languages other than English. For this use case, I consider Parakeet the better fit.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Which Macs are supported?</summary>
+            <p>
+              Parrocchettami supports macOS 14 or later on Apple Silicon Macs with an M1 chip or later.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary>Is Parrocchettami a dictation app?</summary>
+            <p>
+              No. Parrocchettami transcribes audio files and recordings directly and offline on your Mac. It is not designed to insert your voice automatically into other apps.
+            </p>
+            <p>
+              If you are looking for an app to dictate while writing, I recommend
+              <a href="https://github.com/altic-dev/FluidVoice" target="_blank" rel="noopener noreferrer">FluidVoice</a>:
+              it is designed for voice typing and inserting text directly into apps.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section class="section credits-section" id="credits" aria-labelledby="credits-title">
+        <div class="credits-copy">
+          <h2 id="credits-title">Open source, licenses, and credits.</h2>
+          <p>
+            Parrocchettami is free software released under GPL-3.0-or-later: you can read, study, modify, and rebuild it from source.
+          </p>
+          <a class="donation-cta support-link" href="https://oradecima.com/#/portal/support" data-support-trigger aria-haspopup="dialog">Support Parrocchettami <span class="donation-cta-heart" aria-hidden="true">♥</span></a>
+        </div>
+        <div class="credits-grid">
+          <article class="credit-card">
+            <span>Code</span>
+            <h3>GPL-3.0-or-later</h3>
+            <a href="https://github.com/martinowong/parrocchettami/blob/main/LICENSE">License</a>
+          </article>
+          <article class="credit-card">
+            <span>Engine</span>
+            <h3>parakeet.cpp</h3>
+            <a href="https://github.com/mudler/parakeet.cpp">Upstream repository</a>
+          </article>
+          <article class="credit-card">
+            <span>AI model</span>
+            <h3>NVIDIA Parakeet TDT</h3>
+            <a href="https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3">Model card</a>
+          </article>
+          <article class="credit-card">
+            <span>Notices</span>
+            <h3>Third-party components</h3>
+            <a href="https://github.com/martinowong/parrocchettami/blob/main/THIRD_PARTY_NOTICES.md">Full credits</a>
+          </article>
+        </div>
+      </section>
+      <dialog class="support-dialog" id="support-dialog" aria-labelledby="support-dialog-title">
+        <div class="support-dialog-inner">
+          <button class="support-dialog-close" type="button" data-support-close aria-label="Close">×</button>
+          <div class="support-dialog-hero">
+            <div class="support-dialog-hero-copy">
+              <p class="support-dialog-kicker">Donations</p>
+              <h2 id="support-dialog-title">Help develop Parrocchettami.</h2>
+            </div>
+            <div class="support-dialog-mascot" aria-hidden="true">
+              <img src="../assets/parrocchettami-donation-mascot.png" alt="">
+            </div>
+          </div>
+          <p>
+            Parrocchettami is and will remain free and open source. Even a small contribution helps maintain and improve it.
+          </p>
+          <p class="support-dialog-goal">
+            <strong>Fundraising goal</strong>
+            When donations are enough to cover the Apple Developer Program, I will notarize the app: Apple will be able to verify it and installation will be simpler and safer. After that, we can look at other platforms.
+          </p>
+          <div class="support-dialog-actions">
+            <a class="button primary" href="https://oradecima.com/#/portal/support" target="_blank" rel="noopener noreferrer">Continue with Stripe (choose your amount) <span aria-hidden="true">↗</span></a>
+            <button class="support-dialog-cancel" type="button" data-support-close>Not now</button>
+          </div>
+          <small>Payment handled by Stripe.</small>
+        </div>
+      </dialog>
+      <section class="final-cta" aria-labelledby="final-cta-title">
+        <div>
+          <h2 id="final-cta-title">Transcribe audio offline, on your Mac.</h2>
+          <p>Download Parrocchettami or inspect the source code on GitHub.</p>
+        </div>
+        <div class="final-cta-actions" aria-label="Final actions">
+          <div class="final-cta-primary-actions">
+            <a class="button primary" href="https://github.com/martinowong/parrocchettami/releases/latest/download/Parrocchettami-latest-Apple-Silicon.dmg">Download for macOS</a>
+            <a class="button secondary" href="https://github.com/martinowong/parrocchettami">View on GitHub</a>
+          </div>
+          <a class="donation-cta final-cta-support" href="https://oradecima.com/#/portal/support" data-support-trigger aria-haspopup="dialog">Support the project <span class="donation-cta-heart" aria-hidden="true">♥</span></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <a class="brand footer-brand" href="#top">
+          <img src="../assets/parrocchettami-macOS-icon.png" alt="">
+          <span>Parrocchettami</span>
+          <button class="beta-label beta-button" type="button" aria-label="Parrocchettami is in beta">Beta</button>
+        </a>
+        <p>Fast, private offline audio transcription.</p>
+      </div>
+      <nav aria-label="Footer links">
+        <a href="https://github.com/martinowong/parrocchettami/releases/latest/download/Parrocchettami-latest-Apple-Silicon.dmg">Download</a>
+        <a href="#credits">Credits</a>
+        <a href="#faq">FAQ</a>
+        <a href="features.html">Features</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="compare.html">Compare</a>
+        <a href="download.html">Installation</a>
+        <a href="https://oradecima.com/#/portal/support" data-support-trigger aria-haspopup="dialog">Support the project</a>
+        <a href="https://github.com/martinowong/parrocchettami">GitHub</a>
+        <a href="llms.txt">llms.txt</a>
+      </nav>
+      <p class="credits">
+        Developed by <a href="https://oradecima.com">Martino Wong, @oradecima</a>.
+      </p>
+    </footer>
+
+    <script src="../redesign-v2.js?v=copy-editor-5"></script>
+  </body>
+</html>

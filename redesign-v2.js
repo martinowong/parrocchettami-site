@@ -1,5 +1,72 @@
 const wavePaths = Array.from(document.querySelectorAll(".wave-line"));
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const isEnglishPage = document.documentElement.lang === "en";
+const assetPath = isEnglishPage ? "../assets/" : "assets/";
+const uiCopy = isEnglishPage ? {
+  menu: "Menu",
+  openMenu: "Open navigation menu",
+  closeMenu: "Close navigation menu",
+  close: "Close",
+  macOnly: "Mac only",
+  macTitle: "Parrocchettami is a Mac app.",
+  macDescription: "It requires an Apple Silicon Mac with macOS 14 or later. Send this page to your Mac or keep exploring the site.",
+  share: "Share the link",
+  copy: "Copy the link",
+  phone: "But I really want it on my phone!",
+  iphoneKicker: "Parrocchettami on iPhone",
+  iphoneTitle: "Would you like Parrocchettami on iPhone too?",
+  iphoneDescription: "Publishing an app on the App Store requires the Apple Developer Program and dedicated iOS development resources.",
+  iphoneGoal: "A possible next step",
+  iphoneGoalText: "If donations cover the Apple Developer Program, I can evaluate an iOS version and, if sustainable, publish it on the App Store.",
+  support: "Support the project",
+  notNow: "Not now",
+  stripe: "Payment handled by Stripe.",
+  shareTitle: "Parrocchettami for macOS",
+  shareText: "Download Parrocchettami on your Apple Silicon Mac.",
+  shared: "Link shared.",
+  shareFailed: "Could not open sharing.",
+  copied: "Link copied. You can now send it to your Mac.",
+  copiedLabel: "Link copied",
+  copyLabel: "Copy the link",
+  copyFallback: "Copy the address manually from your browser's address bar.",
+  downloadNotice: "The download started in a new tab. Here you will find requirements and first-launch instructions.",
+  enlargedScreenshot: "Enlarged screenshot",
+  closeScreenshot: "Close screenshot",
+  previousScreenshot: "Previous screenshot",
+  nextScreenshot: "Next screenshot"
+} : {
+  menu: "Menu",
+  openMenu: "Apri il menu di navigazione",
+  closeMenu: "Chiudi il menu di navigazione",
+  close: "Chiudi",
+  macOnly: "Solo per Mac",
+  macTitle: "Parrocchettami è un'app per Mac.",
+  macDescription: "Richiede un Mac Apple Silicon con macOS 14 o successivo. Invia questa pagina al tuo Mac oppure continua a esplorare il sito.",
+  share: "Condividi il link",
+  copy: "Copia il link",
+  phone: "Ma lo voglio davvero sul telefono!",
+  iphoneKicker: "Parrocchettami su iPhone",
+  iphoneTitle: "Vuoi Parrocchettami anche su iPhone?",
+  iphoneDescription: "Pubblicare un'app sull'App Store richiede l'Apple Developer Program e risorse dedicate allo sviluppo iOS.",
+  iphoneGoal: "Un possibile prossimo passo",
+  iphoneGoalText: "Se le donazioni copriranno il costo dell'Apple Developer Program, potrò valutare una versione iOS e, se sostenibile, pubblicarla sull'App Store.",
+  support: "Sostieni il progetto",
+  notNow: "Non ora",
+  stripe: "Pagamento gestito da Stripe.",
+  shareTitle: "Parrocchettami per macOS",
+  shareText: "Scarica Parrocchettami sul tuo Mac Apple Silicon.",
+  shared: "Link condiviso.",
+  shareFailed: "Non è stato possibile aprire la condivisione.",
+  copied: "Link copiato. Ora puoi inviarlo al tuo Mac.",
+  copiedLabel: "Link copiato",
+  copyLabel: "Copia il link",
+  copyFallback: "Copia manualmente l'indirizzo dalla barra del browser.",
+  downloadNotice: "Il download è stato avviato in una nuova scheda. Qui trovi requisiti e istruzioni per il primo avvio.",
+  enlargedScreenshot: "Screenshot ingrandito",
+  closeScreenshot: "Chiudi screenshot",
+  previousScreenshot: "Screenshot precedente",
+  nextScreenshot: "Screenshot successivo"
+};
 
 const siteHeader = document.querySelector(".site-header");
 const primaryNavigation = siteHeader?.querySelector(".nav-links");
@@ -8,22 +75,22 @@ if (siteHeader && primaryNavigation) {
   const menuButton = document.createElement("button");
   menuButton.className = "mobile-menu-toggle";
   menuButton.type = "button";
-  menuButton.textContent = "Menu";
+  menuButton.textContent = uiCopy.menu;
   menuButton.setAttribute("aria-expanded", "false");
-  menuButton.setAttribute("aria-label", "Apri il menu di navigazione");
+  menuButton.setAttribute("aria-label", uiCopy.openMenu);
   siteHeader.insertBefore(menuButton, primaryNavigation);
 
   const closeMenu = () => {
     primaryNavigation.classList.remove("is-open");
     menuButton.setAttribute("aria-expanded", "false");
-    menuButton.setAttribute("aria-label", "Apri il menu di navigazione");
+    menuButton.setAttribute("aria-label", uiCopy.openMenu);
   };
 
   menuButton.addEventListener("click", () => {
     const willOpen = !primaryNavigation.classList.contains("is-open");
     primaryNavigation.classList.toggle("is-open", willOpen);
     menuButton.setAttribute("aria-expanded", String(willOpen));
-    menuButton.setAttribute("aria-label", willOpen ? "Chiudi il menu di navigazione" : "Apri il menu di navigazione");
+    menuButton.setAttribute("aria-label", willOpen ? uiCopy.closeMenu : uiCopy.openMenu);
   });
 
   primaryNavigation.addEventListener("click", (event) => {
@@ -55,16 +122,16 @@ if (downloadLinks.length > 0) {
   mobileDialog.setAttribute("aria-labelledby", "mobile-download-dialog-title");
   mobileDialog.innerHTML = `
     <div class="mobile-download-dialog-inner">
-      <button class="mobile-download-dialog-close" type="button" aria-label="Chiudi">×</button>
-      <p class="mobile-download-dialog-kicker">Solo per Mac</p>
-      <h2 id="mobile-download-dialog-title">Parrocchettami è un'app per Mac.</h2>
-      <p>Richiede un Mac Apple Silicon con macOS 14 o successivo. Invia questa pagina al tuo Mac oppure continua a esplorare il sito.</p>
+      <button class="mobile-download-dialog-close" type="button" aria-label="${uiCopy.close}">×</button>
+      <p class="mobile-download-dialog-kicker">${uiCopy.macOnly}</p>
+      <h2 id="mobile-download-dialog-title">${uiCopy.macTitle}</h2>
+      <p>${uiCopy.macDescription}</p>
       <div class="mobile-download-dialog-actions">
-        <button class="button primary" type="button" data-mobile-share>Condividi il link</button>
-        <button class="mobile-download-dialog-copy" type="button" data-mobile-copy aria-label="Copia il link" title="Copia il link"><span aria-hidden="true">⧉</span></button>
+        <button class="button primary" type="button" data-mobile-share>${uiCopy.share}</button>
+        <button class="mobile-download-dialog-copy" type="button" data-mobile-copy aria-label="${uiCopy.copy}" title="${uiCopy.copy}"><span aria-hidden="true">⧉</span></button>
       </div>
       <p class="mobile-download-dialog-status" aria-live="polite"></p>
-      <a class="mobile-ios-interest" href="https://oradecima.com/#/portal/support" data-ios-support-trigger>Ma lo voglio davvero sul telefono!</a>
+      <a class="mobile-ios-interest" href="https://oradecima.com/#/portal/support" data-ios-support-trigger>${uiCopy.phone}</a>
     </div>
   `;
   document.body.appendChild(mobileDialog);
@@ -74,21 +141,21 @@ if (downloadLinks.length > 0) {
   iosSupportDialog.setAttribute("aria-labelledby", "ios-support-dialog-title");
   iosSupportDialog.innerHTML = [
     "<div class='support-dialog-inner'>",
-    "  <button class='support-dialog-close' type='button' data-ios-support-close aria-label='Chiudi'>×</button>",
+    `  <button class='support-dialog-close' type='button' data-ios-support-close aria-label='${uiCopy.close}'>×</button>`,
     "  <div class='support-dialog-hero'>",
     "    <div class='support-dialog-hero-copy'>",
-    "      <p class='support-dialog-kicker'>Parrocchettami su iPhone</p>",
-    "      <h2 id='ios-support-dialog-title'>Vuoi Parrocchettami anche su iPhone?</h2>",
+    `      <p class='support-dialog-kicker'>${uiCopy.iphoneKicker}</p>`,
+    `      <h2 id='ios-support-dialog-title'>${uiCopy.iphoneTitle}</h2>`,
     "    </div>",
-    "    <div class='support-dialog-mascot' aria-hidden='true'><img src='assets/parrocchettami-donation-mascot.png' alt=''></div>",
+    `    <div class='support-dialog-mascot' aria-hidden='true'><img src='${assetPath}parrocchettami-donation-mascot.png' alt=''></div>`,
     "  </div>",
-    "  <p>Pubblicare un'app sull'App Store richiede l'Apple Developer Program e risorse dedicate allo sviluppo iOS.</p>",
-    "  <p class='support-dialog-goal'><strong>Un possibile prossimo passo</strong>Se le donazioni copriranno il costo dell'Apple Developer Program, potrò valutare una versione iOS e, se sostenibile, pubblicarla sull'App Store.</p>",
+    `  <p>${uiCopy.iphoneDescription}</p>`,
+    `  <p class='support-dialog-goal'><strong>${uiCopy.iphoneGoal}</strong>${uiCopy.iphoneGoalText}</p>`,
     "  <div class='support-dialog-actions'>",
-    "    <a class='button primary' href='https://oradecima.com/#/portal/support' target='_blank' rel='noopener noreferrer'>Sostieni il progetto <span aria-hidden='true'>↗</span></a>",
-    "    <button class='support-dialog-cancel' type='button' data-ios-support-close>Non ora</button>",
+    `    <a class='button primary' href='https://oradecima.com/#/portal/support' target='_blank' rel='noopener noreferrer'>${uiCopy.support} <span aria-hidden='true'>↗</span></a>`,
+    `    <button class='support-dialog-cancel' type='button' data-ios-support-close>${uiCopy.notNow}</button>`,
     "  </div>",
-    "  <small>Pagamento gestito da Stripe.</small>",
+    `  <small>${uiCopy.stripe}</small>`,
     "</div>"
   ].join("");
   document.body.appendChild(iosSupportDialog);
@@ -130,17 +197,17 @@ if (downloadLinks.length > 0) {
 
   shareButton.addEventListener("click", async () => {
     const shareData = {
-      title: "Parrocchettami per macOS",
-      text: "Scarica Parrocchettami sul tuo Mac Apple Silicon.",
+      title: uiCopy.shareTitle,
+      text: uiCopy.shareText,
       url: guideUrl.href
     };
 
     if (navigator.share) {
       try {
         await navigator.share(shareData);
-        mobileStatus.textContent = "Link condiviso.";
+        mobileStatus.textContent = uiCopy.shared;
       } catch (error) {
-        if (error.name !== "AbortError") mobileStatus.textContent = "Non è stato possibile aprire la condivisione.";
+        if (error.name !== "AbortError") mobileStatus.textContent = uiCopy.shareFailed;
       }
       return;
     }
@@ -155,15 +222,15 @@ if (downloadLinks.length > 0) {
       void copyButton.offsetWidth;
       copyButton.classList.add("is-copied");
       copyButton.querySelector("span").textContent = "✓";
-      copyButton.setAttribute("aria-label", "Link copiato");
-      mobileStatus.textContent = "Link copiato. Ora puoi inviarlo al tuo Mac.";
+      copyButton.setAttribute("aria-label", uiCopy.copiedLabel);
+      mobileStatus.textContent = uiCopy.copied;
       window.setTimeout(() => {
         copyButton.classList.remove("is-copied");
         copyButton.querySelector("span").textContent = "⧉";
-        copyButton.setAttribute("aria-label", "Copia il link");
+        copyButton.setAttribute("aria-label", uiCopy.copyLabel);
       }, 1400);
     } catch {
-      mobileStatus.textContent = "Copia manualmente l'indirizzo dalla barra del browser.";
+      mobileStatus.textContent = uiCopy.copyFallback;
     }
   });
 
@@ -201,7 +268,7 @@ if (downloadLinks.length > 0) {
     if (downloadMain && downloadHero) {
       const notice = document.createElement("p");
       notice.className = "download-started-notice";
-      notice.textContent = "Il download è stato avviato in una nuova scheda. Qui trovi requisiti e istruzioni per il primo avvio.";
+      notice.textContent = uiCopy.downloadNotice;
       downloadMain.insertBefore(notice, downloadHero);
     }
   }
@@ -670,13 +737,13 @@ if (galleryImages.length > 0) {
   lightbox.className = "gallery-lightbox";
   lightbox.setAttribute("role", "dialog");
   lightbox.setAttribute("aria-modal", "true");
-  lightbox.setAttribute("aria-label", "Screenshot ingrandito");
+  lightbox.setAttribute("aria-label", uiCopy.enlargedScreenshot);
   lightbox.hidden = true;
   lightbox.innerHTML = `
-    <button class="gallery-lightbox-close" type="button" aria-label="Chiudi screenshot">×</button>
-    <button class="gallery-lightbox-nav prev" type="button" aria-label="Screenshot precedente">‹</button>
+    <button class="gallery-lightbox-close" type="button" aria-label="${uiCopy.closeScreenshot}">×</button>
+    <button class="gallery-lightbox-nav prev" type="button" aria-label="${uiCopy.previousScreenshot}">‹</button>
     <img alt="">
-    <button class="gallery-lightbox-nav next" type="button" aria-label="Screenshot successivo">›</button>
+    <button class="gallery-lightbox-nav next" type="button" aria-label="${uiCopy.nextScreenshot}">›</button>
   `;
   document.body.appendChild(lightbox);
 

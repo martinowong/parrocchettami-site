@@ -9,7 +9,7 @@ Parrocchettami turns audio into text locally on Apple Silicon Macs. It uses a lo
 ## Core facts
 
 - Product name: Parrocchettami
-- Website language: Italian
+- Website language: Italian, with an English mirror under `/en/`
 - App type: native macOS SwiftUI app
 - Platform: macOS 14 or later, Apple Silicon Mac
 - Main claim in Italian: "Trascrizione audio offline veloce e privata"
@@ -17,6 +17,7 @@ Parrocchettami turns audio into text locally on Apple Silicon Macs. It uses a lo
 - Developer site: https://oradecima.com
 - Source code: https://github.com/martinowong/parrocchettami
 - Website: https://martinowong.github.io/parrocchettami-site/
+- English website: https://martinowong.github.io/parrocchettami-site/en/
 - Download and installation guide: https://martinowong.github.io/parrocchettami-site/download.html
 - Features: https://martinowong.github.io/parrocchettami-site/features.html
 - Privacy: https://martinowong.github.io/parrocchettami-site/privacy.html
@@ -24,6 +25,13 @@ Parrocchettami turns audio into text locally on Apple Silicon Macs. It uses a lo
 - Parrocchettami vs FluidVoice: https://martinowong.github.io/parrocchettami-site/fluidvoice.html
 - Parrocchettami vs WhisperTranscribe: https://martinowong.github.io/parrocchettami-site/whispertranscribe.html
 - Parrocchettami vs Superwhisper: https://martinowong.github.io/parrocchettami-site/superwhisper.html
+- English download and installation guide: https://martinowong.github.io/parrocchettami-site/en/download.html
+- English features: https://martinowong.github.io/parrocchettami-site/en/features.html
+- English privacy: https://martinowong.github.io/parrocchettami-site/en/privacy.html
+- English comparison: https://martinowong.github.io/parrocchettami-site/en/compare.html
+- English FluidVoice comparison: https://martinowong.github.io/parrocchettami-site/en/fluidvoice.html
+- English WhisperTranscribe comparison: https://martinowong.github.io/parrocchettami-site/en/whispertranscribe.html
+- English Superwhisper comparison: https://martinowong.github.io/parrocchettami-site/en/superwhisper.html
 - Latest download: https://github.com/martinowong/parrocchettami/releases/latest/download/Parrocchettami-latest-Apple-Silicon.dmg
 - Sparkle appcast: https://martinowong.github.io/parrocchettami-site/appcast.xml
 - Current version: 1.1.0
