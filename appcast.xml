@@ -3,6 +3,16 @@
     <channel>
         <title>Parrocchettami</title>
         <item>
+            <title>1.1.1.1</title>
+            <pubDate>Tue, 28 Jul 2026 11:09:30 +0200</pubDate>
+            <link>https://martinowong.github.io/parrocchettami-site/</link>
+            <sparkle:version>1.1.1.1</sparkle:version>
+            <sparkle:shortVersionString>1.1.1.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <enclosure url="https://github.com/martinowong/parrocchettami/releases/download/v1.1.1.1/Parrocchettami-1.1.1.1-Apple-Silicon.dmg" length="16172063" type="application/octet-stream" sparkle:edSignature="r9tyF+/BeF5IYV9h6x9Z5ebwJZe9O8ecGIcPERJxHu3lXYpi6kg7qLOuffoTXU1h1EWRxJef2ooDHsrFN/WXBw=="/>
+        </item>
+        <item>
             <title>1.1.1</title>
             <pubDate>Sun, 19 Jul 2026 16:18:03 +0200</pubDate>
             <link>https://martinowong.github.io/parrocchettami-site/</link>
