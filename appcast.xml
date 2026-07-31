@@ -3,6 +3,26 @@
     <channel>
         <title>Parrocchettami</title>
         <item>
+            <title>1.1.2</title>
+            <pubDate>Fri, 31 Jul 2026 09:08:18 +0200</pubDate>
+            <link>https://martinowong.github.io/parrocchettami-site/</link>
+            <sparkle:version>1.1.2</sparkle:version>
+            <sparkle:shortVersionString>1.1.2</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[# Parrocchettami 1.1.2
+
+## What’s new
+
+- A more polished native interface across recording, transcription progress, history, and transcript review.
+- A new private Activity view with daily minutes and word counts, calculated entirely from local history.
+- Choose a default transcription language and see the installed version or check for updates directly in Settings.
+- Smoother transcript editing, search, confidence review, keyboard focus, and recording feedback.
+- Refined tutorial, accessibility, reduced-motion behavior, and responsive layouts throughout the app.
+]]></description>
+            <enclosure url="https://github.com/martinowong/parrocchettami/releases/download/v1.1.2/Parrocchettami-1.1.2-Apple-Silicon.dmg" length="16408109" type="application/octet-stream" sparkle:edSignature="u9FVjkNmlhJi4QFi1x6hZdoq1siE6rPM5y1/8APmXIfjxXEQ7Q4PnWLweLRnGnfxLQfmTLJhzvbVjS/BdRzXCA=="/>
+        </item>
+        <item>
             <title>1.1.1.1</title>
             <pubDate>Tue, 28 Jul 2026 11:09:30 +0200</pubDate>
             <link>https://martinowong.github.io/parrocchettami-site/</link>
