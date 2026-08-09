@@ -1165,7 +1165,7 @@ body.lightbox-open {
 }
 
 .support-dialog {
-  width: min(640px, calc(100% - 32px));
+  width: min(760px, calc(100% - 32px));
   max-height: calc(100dvh - 24px);
   margin: auto;
   overflow-y: auto;
@@ -1320,10 +1320,25 @@ body.lightbox-open {
 }
 
 .support-dialog-goal {
+  box-sizing: border-box;
+  max-width: none !important;
+  margin: 0 !important;
   padding: 16px 18px;
   border-left: 3px solid var(--green);
   background: var(--surface-soft);
   border-radius: 0 14px 14px 0;
+}
+
+.support-dialog-funding {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 316px);
+  gap: 24px;
+  align-items: start;
+  margin-top: 26px;
+}
+
+.support-dialog-payment {
+  min-width: 0;
 }
 
 .support-dialog-goal strong {
@@ -1337,7 +1352,7 @@ body.lightbox-open {
   display: grid;
   gap: 8px;
   align-items: stretch;
-  margin-top: 26px;
+  margin-top: 0;
 }
 
 .support-dialog-actions .button span {
@@ -1403,6 +1418,12 @@ body.lightbox-open {
 
   .support-dialog-inner {
     padding: 28px 22px 24px;
+  }
+
+  .support-dialog-funding {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 20px;
   }
 
   .support-dialog-hero {

@@ -97,7 +97,7 @@
     </script>
     <link rel="icon" href="assets/parrocchettami-macOS-icon.png">
     <link rel="stylesheet" href="redesign.css?v=copy-editor-3">
-    <link rel="stylesheet" href="redesign-v2.css?v=copy-editor-9">
+    <link rel="stylesheet" href="redesign-v2.css?v=copy-editor-10">
   </head>
   <body>
     <header class="site-header" aria-label="Navigazione">
@@ -514,22 +514,26 @@
             Parrocchettami è e rimarrà gratuita e open source.
             Anche un piccolo contributo aiuta a mantenerla e migliorarla.
           </p>
-          <p class="support-dialog-goal">
-            <strong>Obiettivo della raccolta</strong>
-            Quando le donazioni saranno sufficienti a coprire il costo dell'Apple
-            Developer Program, notarizzerò l'app: Apple potrà verificarla e
-            l'installazione sarà più semplice e sicura. Dopodiché passeremo ad altre piattaforme.
-          </p>
-          <div class="support-dialog-actions">
-            <div class="support-dialog-stripe-button">
-              <stripe-buy-button
-                buy-button-id="buy_btn_1U2U9LBZ7E4J3C2PV20x16Y0"
-                publishable-key="pk_live_51QSmmABZ7E4J3C2PZJ722tiUnINsko8iq7mGpmrBPlGW8NEKcEDpGhbU9Q8T30tfKAvzZQvdubkgQbM4pyCPtM6d00pWv3S7lW"
-              ></stripe-buy-button>
+          <div class="support-dialog-funding">
+            <p class="support-dialog-goal">
+              <strong>Obiettivo della raccolta</strong>
+              Quando le donazioni saranno sufficienti a coprire il costo dell'Apple
+              Developer Program, notarizzerò l'app: Apple potrà verificarla e
+              l'installazione sarà più semplice e sicura. Dopodiché passeremo ad altre piattaforme.
+            </p>
+            <div class="support-dialog-payment">
+              <div class="support-dialog-actions">
+                <div class="support-dialog-stripe-button">
+                  <stripe-buy-button
+                    buy-button-id="buy_btn_1U2U9LBZ7E4J3C2PV20x16Y0"
+                    publishable-key="pk_live_51QSmmABZ7E4J3C2PZJ722tiUnINsko8iq7mGpmrBPlGW8NEKcEDpGhbU9Q8T30tfKAvzZQvdubkgQbM4pyCPtM6d00pWv3S7lW"
+                  ></stripe-buy-button>
+                </div>
+                <button class="support-dialog-cancel" type="button" data-support-close>Non ora</button>
+              </div>
+              <small>Pagamento gestito da Stripe.</small>
             </div>
-            <button class="support-dialog-cancel" type="button" data-support-close>Non ora</button>
           </div>
-          <small>Pagamento gestito da Stripe.</small>
         </div>
       </dialog>
       <section class="final-cta" aria-labelledby="final-cta-title">
@@ -573,6 +577,6 @@
       </p>
     </footer>
 
-    <script src="redesign-v2.js?v=copy-editor-7"></script>
+    <script src="redesign-v2.js?v=copy-editor-8"></script>
   </body>
 </html>

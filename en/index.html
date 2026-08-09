@@ -97,7 +97,7 @@
     </script>
     <link rel="icon" href="../assets/parrocchettami-macOS-icon.png">
     <link rel="stylesheet" href="../redesign.css?v=copy-editor-3">
-    <link rel="stylesheet" href="../redesign-v2.css?v=copy-editor-9">
+    <link rel="stylesheet" href="../redesign-v2.css?v=copy-editor-10">
   </head>
   <body>
     <header class="site-header" aria-label="Navigation">
@@ -488,20 +488,24 @@
           <p>
             Parrocchettami is and will remain free and open source. Even a small contribution helps maintain and improve it.
           </p>
-          <p class="support-dialog-goal">
-            <strong>Fundraising goal</strong>
-            When donations are enough to cover the Apple Developer Program, I will notarize the app: Apple will be able to verify it and installation will be simpler and safer. After that, we can look at other platforms.
-          </p>
-          <div class="support-dialog-actions">
-            <div class="support-dialog-stripe-button">
-              <stripe-buy-button
-                buy-button-id="buy_btn_1U2U9LBZ7E4J3C2PV20x16Y0"
-                publishable-key="pk_live_51QSmmABZ7E4J3C2PZJ722tiUnINsko8iq7mGpmrBPlGW8NEKcEDpGhbU9Q8T30tfKAvzZQvdubkgQbM4pyCPtM6d00pWv3S7lW"
-              ></stripe-buy-button>
+          <div class="support-dialog-funding">
+            <p class="support-dialog-goal">
+              <strong>Fundraising goal</strong>
+              When donations are enough to cover the Apple Developer Program, I will notarize the app: Apple will be able to verify it and installation will be simpler and safer. After that, we can look at other platforms.
+            </p>
+            <div class="support-dialog-payment">
+              <div class="support-dialog-actions">
+                <div class="support-dialog-stripe-button">
+                  <stripe-buy-button
+                    buy-button-id="buy_btn_1U2U9LBZ7E4J3C2PV20x16Y0"
+                    publishable-key="pk_live_51QSmmABZ7E4J3C2PZJ722tiUnINsko8iq7mGpmrBPlGW8NEKcEDpGhbU9Q8T30tfKAvzZQvdubkgQbM4pyCPtM6d00pWv3S7lW"
+                  ></stripe-buy-button>
+                </div>
+                <button class="support-dialog-cancel" type="button" data-support-close>Not now</button>
+              </div>
+              <small>Payment handled by Stripe.</small>
             </div>
-            <button class="support-dialog-cancel" type="button" data-support-close>Not now</button>
           </div>
-          <small>Payment handled by Stripe.</small>
         </div>
       </dialog>
       <section class="final-cta" aria-labelledby="final-cta-title">
@@ -545,6 +549,6 @@
       </p>
     </footer>
 
-    <script src="../redesign-v2.js?v=copy-editor-7"></script>
+    <script src="../redesign-v2.js?v=copy-editor-8"></script>
   </body>
 </html>

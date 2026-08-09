@@ -203,12 +203,16 @@ if (downloadLinks.length > 0) {
     `    <div class='support-dialog-mascot' aria-hidden='true'><img src='${assetPath}parrocchettami-donation-mascot.png' alt=''></div>`,
     "  </div>",
     `  <p>${uiCopy.iphoneDescription}</p>`,
-    `  <p class='support-dialog-goal'><strong>${uiCopy.iphoneGoal}</strong>${uiCopy.iphoneGoalText}</p>`,
-    "  <div class='support-dialog-actions'>",
-    `    <div class='support-dialog-stripe-button'>${stripeDonationButton}</div>`,
-    `    <button class='support-dialog-cancel' type='button' data-ios-support-close>${uiCopy.notNow}</button>`,
+    "  <div class='support-dialog-funding'>",
+    `    <p class='support-dialog-goal'><strong>${uiCopy.iphoneGoal}</strong>${uiCopy.iphoneGoalText}</p>`,
+    "    <div class='support-dialog-payment'>",
+    "      <div class='support-dialog-actions'>",
+    `        <div class='support-dialog-stripe-button'>${stripeDonationButton}</div>`,
+    `        <button class='support-dialog-cancel' type='button' data-ios-support-close>${uiCopy.notNow}</button>`,
+    "      </div>",
+    `      <small>${uiCopy.stripe}</small>`,
+    "    </div>",
     "  </div>",
-    `  <small>${uiCopy.stripe}</small>`,
     "</div>"
   ].join("");
   document.body.appendChild(iosSupportDialog);
