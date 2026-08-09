@@ -3,6 +3,25 @@
     <channel>
         <title>Parrocchettami</title>
         <item>
+            <title>1.1.3</title>
+            <pubDate>Sun, 09 Aug 2026 23:32:10 +0200</pubDate>
+            <link>https://martinowong.github.io/parrocchettami-site/</link>
+            <sparkle:version>1.1.3</sparkle:version>
+            <sparkle:shortVersionString>1.1.3</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description sparkle:format="markdown"><![CDATA[# Parrocchettami 1.1.3
+
+## What’s new
+
+- Updated the local transcription engine to parakeet.cpp 0.5.0.
+- Refined the New Transcription sidebar, audio-file picker, and microphone controls with a clearer native layout.
+- Simplified transcript review and editing actions so copy, export, search, and confidence review are easier to navigate.
+- Packaging now preserves your Finder path-bar and status-bar preferences.
+]]></description>
+            <enclosure url="https://github.com/martinowong/parrocchettami/releases/download/v1.1.3/Parrocchettami-1.1.3-Apple-Silicon.dmg" length="16420251" type="application/octet-stream" sparkle:edSignature="lYpsfl1QdxaIii+k1KR83LyoZ4NWcY9oX2+y0LPxGeiayY6tI0skZiywP3b7BRiGJJtwiDObW0HTowBmzzCVCg=="/>
+        </item>
+        <item>
             <title>1.1.2</title>
             <pubDate>Fri, 31 Jul 2026 09:08:18 +0200</pubDate>
             <link>https://martinowong.github.io/parrocchettami-site/</link>
@@ -31,16 +50,6 @@
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
             <enclosure url="https://github.com/martinowong/parrocchettami/releases/download/v1.1.1.1/Parrocchettami-1.1.1.1-Apple-Silicon.dmg" length="16172063" type="application/octet-stream" sparkle:edSignature="r9tyF+/BeF5IYV9h6x9Z5ebwJZe9O8ecGIcPERJxHu3lXYpi6kg7qLOuffoTXU1h1EWRxJef2ooDHsrFN/WXBw=="/>
-        </item>
-        <item>
-            <title>1.1.1</title>
-            <pubDate>Sun, 19 Jul 2026 16:18:03 +0200</pubDate>
-            <link>https://martinowong.github.io/parrocchettami-site/</link>
-            <sparkle:version>1.1.1</sparkle:version>
-            <sparkle:shortVersionString>1.1.1</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <enclosure url="https://github.com/martinowong/parrocchettami/releases/download/v1.1.1/Parrocchettami-1.1.1-Apple-Silicon.dmg" length="16146339" type="application/octet-stream" sparkle:edSignature="5MfjJZz6Y0JF9akq+ZlOwf2321sb3G8YR7RyLBOuTcUQIc4J9pFRCYGsl4FCvLxwAvqarm4GNJWkn6GgfA6sDA=="/>
         </item>
     </channel>
 </rss>
