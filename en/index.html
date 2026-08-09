@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
     <title>Parrocchettami (Beta) - Fast, private offline audio transcription</title>
     <meta
       name="description"
@@ -129,7 +130,7 @@
               <a class="button primary" href="https://github.com/martinowong/parrocchettami/releases/latest/download/Parrocchettami-latest-Apple-Silicon.dmg">Download for macOS</a>
               <a class="button secondary" href="https://github.com/martinowong/parrocchettami">View on GitHub</a>
             </div>
-            <a class="donation-cta hero-support-link" href="https://oradecima.com/#/portal/support" data-support-trigger aria-haspopup="dialog">Support Parrocchettami <span class="donation-cta-heart" aria-hidden="true">♥</span></a>
+            <a class="donation-cta hero-support-link" href="#support-dialog" data-support-trigger aria-haspopup="dialog">Support Parrocchettami <span class="donation-cta-heart" aria-hidden="true">♥</span></a>
           </div>
         </div>
 
@@ -387,7 +388,7 @@
               Because Parrocchettami is completely free, I cannot currently cover the developer program cost; this is also why there is no mobile release yet.
             </p>
             <p>
-              If you want to help, you can make a <a class="inline-support-link" href="https://oradecima.com/#/portal/support" data-support-trigger aria-haspopup="dialog">donation</a>, share the app with others, or follow me on social media (@oradecima). When donations are enough to cover the Apple Developer Program, I will notarize the app to add Apple's verification and make installation simpler and safer.
+              If you want to help, you can make a <a class="inline-support-link" href="#support-dialog" data-support-trigger aria-haspopup="dialog">donation</a>, share the app with others, or follow me on social media (@oradecima). When donations are enough to cover the Apple Developer Program, I will notarize the app to add Apple's verification and make installation simpler and safer.
             </p>
           </details>
           <details class="faq-item">
@@ -401,7 +402,7 @@
             <p>
               No. Parrocchettami will always remain free and open source. If you want to support development, maintenance, and the Apple developer program cost, you can make a donation.
             </p>
-            <a class="donation-cta faq-support-link" href="https://oradecima.com/#/portal/support" data-support-trigger aria-haspopup="dialog">Make a donation <span class="donation-cta-heart" aria-hidden="true">♥</span></a>
+            <a class="donation-cta faq-support-link" href="#support-dialog" data-support-trigger aria-haspopup="dialog">Make a donation <span class="donation-cta-heart" aria-hidden="true">♥</span></a>
           </details>
           <details class="faq-item">
             <summary>How much space does it require?</summary>
@@ -447,7 +448,7 @@
           <p>
             Parrocchettami is free software released under GPL-3.0-or-later: you can read, study, modify, and rebuild it from source.
           </p>
-          <a class="donation-cta support-link" href="https://oradecima.com/#/portal/support" data-support-trigger aria-haspopup="dialog">Support Parrocchettami <span class="donation-cta-heart" aria-hidden="true">♥</span></a>
+          <a class="donation-cta support-link" href="#support-dialog" data-support-trigger aria-haspopup="dialog">Support Parrocchettami <span class="donation-cta-heart" aria-hidden="true">♥</span></a>
         </div>
         <div class="credits-grid">
           <article class="credit-card">
@@ -492,7 +493,12 @@
             When donations are enough to cover the Apple Developer Program, I will notarize the app: Apple will be able to verify it and installation will be simpler and safer. After that, we can look at other platforms.
           </p>
           <div class="support-dialog-actions">
-            <a class="button primary" href="https://oradecima.com/#/portal/support" target="_blank" rel="noopener noreferrer">Continue with Stripe (choose your amount) <span aria-hidden="true">↗</span></a>
+            <div class="support-dialog-stripe-button">
+              <stripe-buy-button
+                buy-button-id="buy_btn_1U2U9LBZ7E4J3C2PV20x16Y0"
+                publishable-key="pk_live_51QSmmABZ7E4J3C2PZJ722tiUnINsko8iq7mGpmrBPlGW8NEKcEDpGhbU9Q8T30tfKAvzZQvdubkgQbM4pyCPtM6d00pWv3S7lW"
+              ></stripe-buy-button>
+            </div>
             <button class="support-dialog-cancel" type="button" data-support-close>Not now</button>
           </div>
           <small>Payment handled by Stripe.</small>
@@ -508,7 +514,7 @@
             <a class="button primary" href="https://github.com/martinowong/parrocchettami/releases/latest/download/Parrocchettami-latest-Apple-Silicon.dmg">Download for macOS</a>
             <a class="button secondary" href="https://github.com/martinowong/parrocchettami">View on GitHub</a>
           </div>
-          <a class="donation-cta final-cta-support" href="https://oradecima.com/#/portal/support" data-support-trigger aria-haspopup="dialog">Support the project <span class="donation-cta-heart" aria-hidden="true">♥</span></a>
+          <a class="donation-cta final-cta-support" href="#support-dialog" data-support-trigger aria-haspopup="dialog">Support the project <span class="donation-cta-heart" aria-hidden="true">♥</span></a>
         </div>
       </section>
     </main>
@@ -530,7 +536,7 @@
         <a href="privacy.html">Privacy</a>
         <a href="compare.html">Compare</a>
         <a href="download.html">Installation</a>
-        <a href="https://oradecima.com/#/portal/support" data-support-trigger aria-haspopup="dialog">Support the project</a>
+        <a href="#support-dialog" data-support-trigger aria-haspopup="dialog">Support the project</a>
         <a href="https://github.com/martinowong/parrocchettami">GitHub</a>
         <a href="llms.txt">llms.txt</a>
       </nav>
@@ -539,6 +545,6 @@
       </p>
     </footer>
 
-    <script src="../redesign-v2.js?v=copy-editor-6"></script>
+    <script src="../redesign-v2.js?v=copy-editor-7"></script>
   </body>
 </html>

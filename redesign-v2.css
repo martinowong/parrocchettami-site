@@ -1349,6 +1349,19 @@ body.lightbox-open {
   white-space: nowrap;
 }
 
+.support-dialog-stripe-button {
+  display: inline-flex;
+  min-height: 50px;
+  flex: 1 1 auto;
+  align-items: center;
+  max-width: 100%;
+}
+
+.support-dialog-stripe-button stripe-buy-button {
+  display: block;
+  max-width: 100%;
+}
+
 .support-dialog-cancel {
   min-height: 50px;
   padding: 0 12px;
@@ -1417,6 +1430,10 @@ body.lightbox-open {
     padding-right: 14px;
     padding-left: 14px;
     font-size: 13px;
+  }
+
+  .support-dialog-stripe-button {
+    width: 100%;
   }
 
   .install-screens img {

@@ -2,6 +2,7 @@ const wavePaths = Array.from(document.querySelectorAll(".wave-line"));
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const isEnglishPage = document.documentElement.lang === "en";
 const assetPath = isEnglishPage ? "../assets/" : "assets/";
+const stripeDonationButton = "<stripe-buy-button buy-button-id='buy_btn_1U2U9LBZ7E4J3C2PV20x16Y0' publishable-key='pk_live_51QSmmABZ7E4J3C2PZJ722tiUnINsko8iq7mGpmrBPlGW8NEKcEDpGhbU9Q8T30tfKAvzZQvdubkgQbM4pyCPtM6d00pWv3S7lW'></stripe-buy-button>";
 const uiCopy = isEnglishPage ? {
   menu: "Menu",
   openMenu: "Open navigation menu",
@@ -182,13 +183,14 @@ if (downloadLinks.length > 0) {
         <button class="mobile-download-dialog-copy" type="button" data-mobile-copy aria-label="${uiCopy.copy}" title="${uiCopy.copy}"><span aria-hidden="true">⧉</span></button>
       </div>
       <p class="mobile-download-dialog-status" aria-live="polite"></p>
-      <a class="mobile-ios-interest" href="https://oradecima.com/#/portal/support" data-ios-support-trigger>${uiCopy.phone}</a>
+      <a class="mobile-ios-interest" href="#ios-support-dialog" data-ios-support-trigger>${uiCopy.phone}</a>
     </div>
   `;
   document.body.appendChild(mobileDialog);
 
   const iosSupportDialog = document.createElement("dialog");
   iosSupportDialog.className = "support-dialog ios-support-dialog";
+  iosSupportDialog.id = "ios-support-dialog";
   iosSupportDialog.setAttribute("aria-labelledby", "ios-support-dialog-title");
   iosSupportDialog.innerHTML = [
     "<div class='support-dialog-inner'>",
@@ -203,7 +205,7 @@ if (downloadLinks.length > 0) {
     `  <p>${uiCopy.iphoneDescription}</p>`,
     `  <p class='support-dialog-goal'><strong>${uiCopy.iphoneGoal}</strong>${uiCopy.iphoneGoalText}</p>`,
     "  <div class='support-dialog-actions'>",
-    `    <a class='button primary' href='https://oradecima.com/#/portal/support' target='_blank' rel='noopener noreferrer'>${uiCopy.support} <span aria-hidden='true'>↗</span></a>`,
+    `    <div class='support-dialog-stripe-button'>${stripeDonationButton}</div>`,
     `    <button class='support-dialog-cancel' type='button' data-ios-support-close>${uiCopy.notNow}</button>`,
     "  </div>",
     `  <small>${uiCopy.stripe}</small>`,
